@@ -5,4 +5,6 @@ Om de CV te zien:
 4) Alles uitpakken
 5) klik op de net uitgepakte folder Alleen-CV-Main --> Alleen-CV-Main --> Alleen CV --> Alleen-CV.html  --> openen
 Dit zou normaal de cv in je web-browser moeten openen.
+
 Kijk ook zeker naar mijn C# projecten --> https://github.com/SeppeBaerts/Shpielerij
+
