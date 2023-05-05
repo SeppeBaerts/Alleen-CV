@@ -1,0 +1,542 @@
+
+
+/*
+****************************
+*          Legend          *
+****************************
+1.Root en wildcards
+2.Body
+3.Main
+4.Nav
+5.Dark-Mode
+    5.5 DarkModeSVG
+6.Animations
+7.Hamburger-menu
+8.@media
+*/
+
+/*
+****************************
+*   1. Root and wildcards  *
+****************************
+ */
+
+:root{
+    --gray-ish: #434341;
+    --dark-mode-text: #d9ddd7;
+    --shadow: #197B39FF;
+    --dark-mode-nav: #1f1e1e;
+    --green-article-background: rgb(129 159 147/0.50);
+    --yellow-highlighter-background: rgb(255, 247, 184);
+    --alternerend-Even: rgb(0 180 135);
+    --alternerend-Oneven: rgb(129 132 129);
+}
+
+*{
+    box-sizing: border-box;
+}
+*::-webkit-scrollbar{
+    display: none;
+}
+*::selection {
+    background: var(--yellow-highlighter-background);
+    color: black;
+}
+
+/*
+****************************
+*           2.Body           *
+****************************
+ */
+body{
+    margin-top: unset;
+    margin-left: unset;
+    margin-right: unset;
+    font-family: "HP Simplified", sans-serif;
+    font-size: 130%;
+    overflow-x: hidden;
+    overscroll-behavior-x: none;
+}
+/*Dark mode for body*/
+.dark-mode{
+    background: black ;
+    color: var(--dark-mode-text);
+}
+/*
+****************************
+*         3.Main           *
+****************************
+ */
+main {
+    display: flex;
+    flex-direction: row;
+    flex-wrap:nowrap;
+    justify-content: space-evenly;
+    gap: 1em;
+    width:95%;
+    align-content: space-evenly;
+    margin-left: 1em;
+}
+main article{
+    flex:1;
+}
+/*
+****************************
+*          4.Nav           *
+****************************
+ */
+nav {
+    display: flex;
+    position: sticky;
+    top: 0;
+    background-color: var(--gray-ish);
+    padding-right: 20px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: flex-end;
+    z-index: 10;
+    transition: all 200ms ease-in-out;
+}
+.dark-mode nav{
+    background: var(--dark-mode-nav);
+    color: white;
+}
+.drop-down-div *{
+    min-height: 5.8rem;
+    max-height: 5.8rem;
+}
+button, .link-button{
+    background: var(--dark-mode-nav);
+    text-align: center;
+    padding: 15px 0;
+    margin-left: 20px;
+    border: 2px #2b2b2a solid;
+    border-top: none;
+    border-bottom: none;
+    font-size: 100%;
+    font-family: "HP Simplified", sans-serif;
+    color: white;
+    min-width: 7rem;
+    width: calc(100vw/11);
+}
+button:hover, .link-button:hover {
+    background-color: #2b2b2a;
+    transition: background-color 200ms ease-in-out ;
+    font-size: 100%;
+    font-family: "HP Simplified", sans-serif;
+    cursor: pointer;
+}
+.drop-down-div{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    max-height: 5.8rem;
+    z-index: 12;
+    overflow: auto;
+    gap: 0;
+}
+.first{
+z-index: 13;
+}
+.drop-down-div:hover{
+    overflow: visible;
+}
+
+
+/*
+****************************
+*        5.Dark-Mode       *
+****************************
+ */
+.darkmodeim{
+    max-width: 1em;
+    border: none;
+}
+.darkmodebutt,
+.dark-mode .darkmodebutt,
+.dark-mode .darkmodebutt:hover{
+    border: none;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    padding: 0;
+    background: none;
+    display: none;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+.dark-mode .darkmodebutt:hover,
+.darkmodebutt:hover,
+.darkmode .darkmodebutt:active{
+    background: none;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+}
+.margin-right{
+    margin-right: auto;
+}
+.clicked, .clicked:hover{
+    background: black;
+}
+.dark-mode .clicked,
+.dark-mode .clicked:hover{
+    background: rgba(255, 255, 255, 0.42);
+    color: #151c28;
+}
+.disabled{
+    display: none;
+    animation: disabled2 2000ms forwards;
+}
+/*
+****************************
+*    5.5.DarkModeSVG        *
+****************************
+*/
+#DarkModeButton{
+    background:transparent;
+    border:none;
+}
+#DarkModeButton:hover{
+    cursor:pointer;
+}
+.circle-moon{
+    fill:transparent;
+    transition:
+            rotate 200ms ease,
+            cx 200ms ease,
+            cy 300ms ease,
+            fill 300ms ease;
+}
+
+.cirlce-sun{
+    fill:yellow;
+}
+.stroke{
+    fill:yellow;
+}
+#DarkModeButton[aria-expanded="true"] .circle-moon{
+    cx:60;
+    cy:50;
+    stroke: black;
+    fill: black;
+}
+#DarkModeButton[aria-expanded="true"] .cirlce-sun{
+    fill:gray;
+    transition: fill 600ms ease;
+}
+#DarkModeButton[aria-expanded="true"] .stroke{
+    opacity:0;
+    x:25;
+    y:50;
+    rotate:0deg;
+
+    transition:
+            rotate 200ms ease 150ms,
+            x 200ms ease 150ms,
+            y 300ms ease 150ms,
+            opacity 150ms ease;
+}
+
+.sun-stroke1{
+    rotate:-40deg;
+}
+.sun-stroke2{
+    rotate:30deg;
+}
+.sun-stroke3{
+    rotate:0deg;
+}
+.sun-stroke4{
+    rotate:40deg;
+}
+.sun-stroke5{
+    rotate:0;
+}
+.sun-stroke6{
+    rotate:-30deg;
+}
+.sun-stroke7{
+    rotate:90deg;
+}
+.sun-stroke8{
+    rotate:-90deg;
+}
+.performance{
+    transition: rotate 200ms ease,
+    x 200ms ease,
+    y 300ms ease,
+    cx 200ms ease,
+    cy 300ms ease,
+    opacity 50ms ease,
+    fill 200ms ease 100ms;
+}
+/*
+****************************
+*       6.Animations       *
+****************************
+ */
+
+
+@keyframes spring-from-left{
+    0%{margin-left:-100%; margin-right: -100%}
+    45%{margin-left:0; margin-right: 0}
+    50%{transform: rotate3d(.55, 0.5, .000, 60deg)}
+    100%{transform: rotate3d(0,0,0,0deg)}
+}
+
+@keyframes spring-to-right{
+     0%{transform: rotate3d(0,0,0,0deg)}
+    45%{transform: rotate3d(.55, 0.5, .000, 60deg)}
+    50%{margin-left:0; margin-right: 0}
+    100%{margin-left:-100%; margin-right: -100%}
+ }
+
+
+@keyframes DarkToDayBody{
+    0%{background: black; color: white}
+    100%{background: white; color: black}
+}
+
+@keyframes DayToDarkBody {
+    0%{background: white; color: black;}
+    100%{background: black; color: white;}
+}
+@keyframes pulse {
+    0%{box-shadow: none;}
+    40%{box-shadow: 2px 5px 20px;}
+    100%{box-shadow: none;}
+}
+@keyframes come-from-left {
+    0%{opacity: 0; margin-left: -100%}
+    100%{opacity: 1; margin-left:0}
+}
+@keyframes come-from-left-page {
+    0%{opacity: 0; margin-left: -100%}
+    50%{opacity:0; margin-left: -100%}
+    100%{opacity: 1; margin-left:0}
+}
+@keyframes come-from-right{
+    0%{opacity:0; margin-right:-100%;}
+    100%{opacity:1; margin-right:0;}
+}
+@keyframes come-from-middle{
+    0%{opacity: 0; width:1%; height:1%;}
+    100%{opacity: 1; width:100%; height:100%;}
+}
+@keyframes cardanimation {
+    0%{top: 50%; bottom: 50%; left: 50%; right: 50%;}
+    100%{top: 5%; bottom: 5%; left: 20%; right: 20%;}
+}
+@keyframes opacity {
+    0%{opacity:0}
+    100%{opacity:1}
+}
+@keyframes opacity50 {
+    0%{opacity:0}
+    100%{opacity:0.5}
+}
+@keyframes opacityrev {
+    0%{opacity:1}
+    100%{opacity:0; display: none;}
+    101%{display: none;}
+}
+@keyframes rotate {
+    0%{rotate:180deg;}
+    100%{rotate:360deg;}
+}
+@keyframes rotate2 {
+    0%{rotate:0deg;}
+    100%{rotate:180deg;}
+}
+@keyframes GetBigger {
+    0%{max-width:17rem}
+    100%{max-width:19rem}
+}
+@keyframes GetSmaller {
+    0%{max-width:19rem}
+    100%{max-width: 17rem}
+}
+@keyframes come-from-left2 {
+    0%{opacity: 0; margin:-100%;}
+    100%{opacity: 1; margin: 0; }
+}
+
+/*
+****************************
+*     7.Hamburger-menu     *
+****************************
+ */
+.hamburger-button{
+    border:none;
+    background:transparent;
+    z-index: 20;
+    padding: 0;
+    opacity: .5;
+    transition: opacity 5s ease-out;
+}
+.hamburger-button:hover{
+    cursor:pointer;
+    opacity: 1;
+}
+
+.dark-mode  .hamburger-button:hover .line{
+    fill:rgb(129 159 147);
+}
+.line{
+    fill:var(--green-article-background);
+}
+button .line{
+    transition:
+            fill 200ms ease-in-out,
+            rotate 200ms ease-out,
+            opacity 50ms ease-out 200ms,
+            y 200ms ease-out 200ms;
+    transform-origin: center;
+}
+
+button[aria-expanded="true"] .line{
+    transition:
+            y 200ms ease-out,
+            rotate 200ms ease-out 300ms,
+            opacity 50ms ease-out 300ms;
+    fill:rgb(129 159 147);
+}
+button[aria-expanded="true"] .top-line{
+    y:45;
+    rotate: 50deg;
+}
+button[aria-expanded="true"] .bottom-line{
+    y:45;
+    rotate: -50deg;
+}
+button[aria-expanded="true"] .middle-line{
+    opacity:0;
+}
+.hamburger-button .outline{
+    fill:transparent;
+    transition:
+            height 200ms ease 200ms,
+            y 200ms ease 200ms;
+}
+.dark-mode .hamburger-button:hover .outline{
+    fill:transparent;
+}
+.hamburger-button[aria-expanded="true"] .outline{
+    y:50;
+    height:0;
+    width:0;
+    transition:
+            height 200ms ease,
+            y 200ms ease ;
+}
+
+.menu-icon{
+    display: none;
+    position: fixed;
+    border: none;
+    top: 0;
+    left: 0;
+    background: transparent;
+}
+/*
+****************************
+*        8.@media          *
+****************************
+ */
+
+@media screen and (max-width: 1050px) {
+    .flex-container{
+        margin: 0;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .darkmodebutt,
+    .dark-mode .darkmodebutt,
+    .dark-mode .darkmodebutt:hover{
+        display: inherit;
+        z-index: 8;
+    }
+    #darkmode{
+        display: none;
+    }
+}
+@media screen and (max-width: 900px){
+    .drop-down-div{
+        display: none;
+    }
+    div{
+        flex-direction: column;
+    }
+    .margin-right{
+        display: none;
+    }
+    nav{
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-content: stretch;
+        position: fixed;
+        left:-100%;
+        justify-content: space-evenly;
+    }
+    article img{
+        max-width: 40%;
+        margin: 0;
+    }
+    button{
+        padding: 7% 2% 7% 5%;
+        border: none;
+        width: auto;
+        border-top: 2px #2b2b2a solid ;
+        border-bottom: 2px #2b2b2a solid;
+    }
+    .pijltje{
+        display: none;
+    }
+    .flex-container article{
+        max-height: 80rem;
+    }
+    .flex-container{
+        margin: 0;
+        max-width: inherit;
+    }
+    .percentagebar_container{
+        flex-direction: column;
+    }
+    .percent10{
+        border-radius: 50%;
+    }
+    body .show{
+        animation: menucome 1000ms forwards;
+    }
+    .menu-icon{
+        display: inline;
+        margin: 0;
+    }
+    .menu-icon:hover{
+        background: transparent;
+    }
+    .bolletjes_container{
+        flex-direction: row;
+    }
+    .closeMenu{
+        display: inherit;
+    }
+    .hide{
+        animation: menugo 1000ms forwards;
+    }
+    .uitleg-taken{
+        flex-direction: column;
+    }
+
+}
+@keyframes menucome {
+    0%{left: -100%}
+    100%{left: 0}
+}
+@keyframes menugo {
+    0%{left:0}
+    100%{left:-100%}
+}

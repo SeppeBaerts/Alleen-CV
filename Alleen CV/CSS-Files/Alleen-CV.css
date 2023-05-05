@@ -1,0 +1,598 @@
+/*
+Even een introductie:
+Dit is mijn CV Die ik als opdracht heb moeten maken (in december 2022). Ik had op dit punt 4 maanden ervaring in coderen.
+Verder is hier niet echt veel aan aangepast, ik heb de tekst een beetje aangepast zodat deze nog klopt
+maar qua code is dit vrijwel hetzelfde.
+
+Sidenote: Dit is een deel van een portfolio. Als je het volledige portfolio wilt zien kun je mij altijd contacteren op
+linked-in:https://www.linkedin.com/in/seppe-baerts-a1bb45252/
+Email: 12202625@student.pxl.be
+*/
+
+/*
+****************************
+*          Legend          *
+****************************
+1.Flex Container
+2.Pijltjes
+3.Articles
+4.Percentagebar
+5.Bolletjes
+6.Footer
+7.Overige
+8.Tabel
+9.Animations
+10.@media
+*/
+
+/*
+****************************
+*    1.Flex container      *
+****************************
+*/
+
+.flex-container{
+    display:flex;
+    flex-direction: column;
+    gap:2rem;
+    margin:5vh 10vw;
+    min-width: 12rem;
+    max-width: 80vw;
+    transition: all 200ms ease-in-out;
+}
+div{
+    display: flex;
+    gap: 3rem;
+}
+.flex-container article {
+    max-height: 18rem;
+    min-height: 18rem;
+    overflow-y: hidden;
+    min-width: 25rem;
+    animation: spring-from-left 2000ms;
+    transition: all 500ms ease-out;
+}
+.flex-container .hogerartiekel{
+    max-height: 80rem;
+    min-height: 18rem;
+    transition: all 1000ms ease-out;
+    /*animation: fit_content 1000ms forwards;*/
+}
+
+/*
+****************************
+*       2.Pijltjes         *
+****************************
+*/
+
+.pijltje{
+    position: relative;
+    max-width: 3rem;
+    border: none;
+    margin: 0;
+    align-self: center;
+    top: 83%;
+    opacity: 0.5;
+    transition: all 200ms ease-out;
+}
+.negative_margin{
+    margin-top: -5% ;
+}
+
+#pijltje:hover,
+#pijltje2:hover{
+    opacity: 1;
+    filter: invert(77%) sepia(82%) saturate(429%) hue-rotate(78deg) brightness(200%) contrast(101%) drop-shadow(-5px 0 2px);
+    cursor: pointer;
+    box-shadow: none;
+}
+
+.rotatedown{
+    rotate: 90deg;
+    top: 65%;
+}
+
+.rotateup{
+    rotate:270deg;
+}
+
+/*
+****************************
+*        3.Articles        *
+****************************
+*/
+article{
+    display:flex;
+    flex-direction: column;
+    border: 2px black solid;
+    border-radius: 10px;
+    box-shadow: 10px 10px 20px;
+    transition: all 0.5s ease-in-out;
+}
+article p{
+    margin: 0 0 0 5px;
+}
+article h2{
+    margin: 5px;
+}
+
+.main-picture-div{
+    display: flex;
+    border-bottom-left-radius: 50vh;
+    border-bottom-right-radius: 50vh;
+    padding-top: 2rem;
+    justify-self: center;
+    overflow: hidden;
+    max-height: 90%;
+    align-items: flex-end;
+    justify-items: center;
+    max-width: 45%;
+    transition: filter 300ms ease-in-out;
+}
+.main-picture-div:hover{
+    filter: drop-shadow(5px 0px 20px black);
+}
+.dark-mode .main-picture-div:hover{
+    filter: drop-shadow(5px 0px 20px white);
+}
+.main-picture-div a{
+    background-image: url("/assets/FotosCV/background_white.jpg");
+    border-radius: 50vh;
+    border: 2px black solid;
+    transition: all 500ms ease-in-out;
+    height: 197px;
+}
+.dark-mode .main-picture-div a{
+    background-image: url("/assets/FotosCV/background_blue.png");
+
+}/*SPEEL HIER NOG WAT MEE*/
+.main-picture-div:active,
+.dark-mode .main-picture-div:active{
+    filter: none;
+}
+.main-picture-div a:active{
+    border-color:white;
+
+}
+.main-picture-div >a> img{
+    max-width:110%;
+    transition: scale 500ms ease-in-out,
+    bottom 500ms ease-in-out;
+    position: relative;
+    left: -5px;
+    top: -15px;
+}
+.klein{
+    flex: 1;
+    padding: 1rem;
+}
+.groot {
+    flex: 2;
+    padding: 1rem;
+}
+.full{
+    flex:1;
+    padding: 1rem;
+}
+
+.rowdirect{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+}
+.column-margin{
+    display: flex;
+    flex-direction: column;
+}
+.column-margin:first-child{
+    margin-top: 1rem;
+}
+.column-margin:last-child{
+    margin-bottom: 1rem;
+}
+.greenbackground{
+    background:rgb(129 159 147/0.50);
+}
+.hoger{
+    position: relative;
+    top: -10px;
+    left: 5px;
+}
+.kleinetekst{
+    font-size: 60%;
+}
+.flex-container article section{
+    margin-left: 50px;
+}
+.flex-container section:has(ul){
+    margin-left: 10px;
+    margin-top: 5px;
+}
+.flex-container article .natural{
+    display: inherit;
+    gap: normal;
+}
+
+.flex-container > div > .scroll-enabled{
+    overflow-y: scroll;
+}
+/*
+****************************
+*       4.Percentagebar    *
+****************************
+*/
+h3{
+    flex:1;
+}
+.percentagebar_container{
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.percentagebar{
+    width: 80%;
+    min-height: 3rem;
+    border: 2px #197b39 solid;
+    border-radius: 36px;
+    flex: 3;
+    animation: percentagebar 2000ms
+}
+.percentage-fill{
+    min-height: 3rem;
+    padding-top: 0.7rem;
+    background: #00B487;
+    border-radius: 36px;
+    gap: 0;
+}
+.percent10{
+    width: 10%;
+}
+.percent25{
+    width: 25%;
+}
+.percent40{
+    width: 40%;
+}
+.percent50{
+    width: 50%;
+}
+.percent60{
+    width: 60%;
+}
+.percent70{
+    width: 70%;
+}
+.percent85{
+     width: 85%;
+ }
+.percent90{
+      width: 90%;
+  }
+.percent95{
+      width: 95%;
+  }
+.percent100{
+       width: 100%;
+   }
+@keyframes percentagebar {
+    0%{margin-right: -200%}
+    35%{margin-right: -200%}
+    100%{margin-right: 0}
+}
+.flex-container div article:hover {
+    box-shadow:10px 10px 20px rgb(129 159 147);
+    border-color:rgb(129 159 147);
+
+}
+/*
+****************************
+*      5.Bolletjes         *
+****************************
+*/
+.cirkel{
+    height: 1.5rem;
+    width: 1.5rem;
+    border: 2px #197b39 solid;
+    border-radius: 20px;
+}
+.aan1{
+    animation: inkleuren 2000ms forwards;
+}
+.aan2{
+    animation: inkleuren 2400ms forwards;
+}
+.aan3{
+    animation: inkleuren 2800ms forwards;
+}
+.aan4{
+    animation: inkleuren 3200ms forwards;
+}
+.aan5{
+    animation: inkleuren 3400ms forwards;
+}
+
+.flex-gap{
+    display: flex;
+    gap: 1rem;
+    margin-right: 50px;
+}
+
+.bolletjes_container{
+    gap: 0;
+}
+/*
+****************************
+*        7.Footer          *
+****************************
+*/
+footer{
+    display: flex;
+    background: var(--gray-ish);
+    position:relative;
+    bottom:-10px;
+    left:0;
+    right:0;
+    color: white;
+    height: 2%;
+    align-items: center;
+    transition: all 500ms ease-in-out;
+}
+footer button{
+    padding: 1%;
+}
+.dark-mode footer{
+    background: var(--dark-mode-nav);
+    color: white;
+}
+.footer-left{
+    margin-right:auto;
+    display:flex;
+    margin-left: 1%;
+}
+.footer-right{
+    margin-left:auto;
+}
+
+.flex-container section:has(.social-media){
+    margin:0;
+    box-shadow: none;
+}
+.hide-Footer{
+    height: 0;
+}
+/*
+****************************
+*        8.Overige         *
+****************************
+*/
+
+ul{
+    list-style-image: url("../assets/circle-svgrepo-com.svg");
+    margin: 0;
+}
+.flex-container section a .social-media{
+    border-radius: inherit;
+    border: none;
+    max-width: 15%;
+    box-shadow: none;
+}
+.social-media:hover{
+    filter: invert(77%) sepia(82%) saturate(429%) hue-rotate(78deg) brightness(101%) contrast(101%);
+}
+.showsmall{
+    display: none;
+}
+.onjuist::after{
+    position: relative;
+    content: "*Diploma niet behaald.";
+    font-size: 60%;
+    bottom: -18px;
+    right: 2rem;
+}
+.false::after{
+    position: relative;
+    content: "*Degree not achieved";
+    font-size: 60%;
+    bottom: -18px;
+    right: 2rem;
+}
+.small-text{
+    font-size: 70%;
+}
+#DarkModeButton[aria-expanded="true"] .circle-moon {
+    stroke: #41504a;
+    fill: #41504a;
+}
+/*
+****************************
+*        9.Tabel          *
+****************************
+*/
+td{
+    border-radius: 5px;
+}
+tr:nth-child(even){
+    background-color: var(--alternerend-Even);
+}
+tr:nth-child(odd){
+    background-color: var(--alternerend-Oneven);
+}
+/*
+****************************
+*      10.Animations       *
+****************************
+*/
+@keyframes menucome {
+    0%{left: -200%}
+    100%{left: 0}
+}
+@keyframes menugo {
+    0%{left:0}
+    100%{left:-200%}
+}
+@keyframes inkleuren {
+    80%{background-color: rgba(0, 180, 135, 0)}
+    100%{background-color: #00B487}
+}
+@keyframes fit-content {
+    0%{max-height: 18rem}
+    100%{max-height: 80rem}
+}
+@keyframes shadow-go-wee-woo{
+
+    0%{box-shadow: var(--shadow) 0 -5px 16px 1px}
+    11%{box-shadow: var(--shadow) 0 -10px 16px 1px}
+    22%{box-shadow: var(--shadow) -10px -10px 16px 1px}
+    33%{box-shadow: var(--shadow) -10px 0 16px 1px}
+    44%{box-shadow: var(--shadow) -10px 10px 16px 1px }
+    55%{box-shadow: var(--shadow) 0 10px 16px 1px}
+    66%{box-shadow: var(--shadow) 10px 10px 16px 1px}
+    77%{box-shadow: var(--shadow) 10px 0 16px 1px}
+    88%{box-shadow: var(--shadow) 10px -10px 16px 1px}
+    100%{box-shadow: var(--shadow) 5px -10px 16px 1px}
+}
+
+
+/*
+****************************
+*        11.@media         *
+****************************
+*/
+@media screen and (max-width: 1250px) {
+    .alleen-cv .vertaal{
+        display: initial;
+        align-self: initial;
+    }
+    .alleen-cv .disabled{
+        display: none;
+    }
+    .alleen-cv #darkmode{
+        margin: initial;
+        display: initial;
+    }
+
+}
+@media screen and (max-width: 1050px) {
+    .flex-container{
+        margin: 3% 3%;
+        flex-direction: column;
+        max-width: initial;
+    }
+
+}
+@media screen and (max-width: 900px){
+    div{
+        flex-direction: column;
+    }
+    .margin-right{
+        margin: initial;
+        display: initial;
+    }
+    nav{
+        height: 100%;
+        width: 100%;
+        flex-direction: column;
+        align-content: stretch;
+        position: fixed;
+        left:-100%;
+        justify-content: space-evenly;
+    }
+    .main-picture-div{
+        max-width: 40%;
+    }
+    .main-picture-div img{
+        max-width: 100%;
+    }
+    .main-picture-div a {
+        max-width: 150px;
+        height: 150px;
+        border-radius: 50%;
+    }
+    button{
+        padding: 7% 2% 7% 5%;
+        border: none;
+        border-top: 2px #2b2b2a solid ;
+        border-bottom: 2px #2b2b2a solid;
+    }
+    .pijltje{
+        display: none;
+    }
+    .flex-container article{
+        max-height: 80rem;
+    }
+    .flex-container{
+        margin: 0;
+        max-width: inherit;
+    }
+    .percentagebar_container{
+        flex-direction: column;
+    }
+    .percent10{
+        border-radius: 50%;
+    }
+    body .show{
+        animation: menucome 1000ms forwards;
+    }
+    .menu-icon{
+        display: inline;
+        margin: 0;
+    }
+    .menu-icon:hover{
+        background: transparent;
+    }
+    .bolletjes_container{
+        flex-direction: row;
+    }
+    .closeMenu{
+        display: inherit;
+    }
+    .hide {
+        animation: menugo 1000ms forwards;
+    }
+    .flex-container article section{
+        margin-left: 1%;
+    }
+    table{
+        display: none;
+    }
+    .showsmall{
+        display: flex;
+        flex-direction: row;
+        row-gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .showsmall div{
+        margin: 0;
+        width: 50%;
+    }
+    .small-inset{
+        margin-left: 1rem;
+        padding-left: 3px;
+        border-left: #20C056 2px solid;
+    }
+    footer{
+        flex-direction: column;
+    }
+    footer *{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    footer .footer-left{
+        flex-direction: row;
+        margin-left: auto;
+    }
+    footer button{
+        margin-bottom: 10px;
+    }
+    .opleidingen-container{
+        gap: 0;
+    }
+}
+@media screen and (max-width: 500px) {
+    .showsmall {
+        flex-direction: column;
+    }
+}
