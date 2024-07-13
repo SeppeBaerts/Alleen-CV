@@ -82,15 +82,15 @@
     <button class="vertaal nederlands">Engels</button>
     <button class="vertaal engels disabled">Dutch</button>
     <button class="margin-right" id="darkmode">DarkMode</button>
-    <a class="link-button" href="https://github.com/SeppeBaerts/Shpielerij">Github</a>
-    <a class="link-button" href="https://codepen.io/SeppeBaerts">CodePen</a>
-    <a class="link-button" href="https://www.linkedin.com/in/seppe-baerts-a1bb45252/">LinkedIn</a>
+    <a class="link-button" href="https://github.com/SeppeBaerts" target="_blank">Github</a>
+    <a class="link-button" href="https://codepen.io/SeppeBaerts" target="_blank">CodePen</a>
+    <a class="link-button" href="https://www.linkedin.com/in/seppe-baerts-a1bb45252/" target="_blank">LinkedIn</a>
 </nav>
 <div class="flex-container">
     <div>
         <article class="klein rowdirect greenbackground">
             <div class="main-picture-div">
-                <a href="https://www.linkedin.com/in/seppe-baerts-a1bb45252/">
+                <a target="_blank" href="https://www.linkedin.com/in/seppe-baerts-a1bb45252/">
                     <img src="assets/FotosCV/Transparante_achtergrond_gemiddeld.png" alt="Foto van mijzelf">
                 </a>
             </div>
@@ -102,7 +102,8 @@
             <h2 class="nederlands"> Over mij </h2>
             <h2 class="engels disabled"> About me </h2>
             <p class="nederlands">Ik ben het soort persoon dat zich afvraagt: "hmm, wie ben ik?" Wanneer ik een
-                introductie moet schrijven. Mijn brein werkt anders dan dat van anderen. Ik zeg niet dat mijn ideeën beter
+                introductie moet schrijven. Mijn brein werkt anders dan dat van anderen. Ik zeg niet dat mijn ideeën
+                beter
                 zijn, of zelfs juist, maar ze zijn gewoon anders. Wanneer ik een film op Netflix zoek, geld opneem bij
                 de bank, of zelfs nu tijdens het schrijven van deze inleiding, denk ik aan de code erachter. Hoe weet
                 mijn laptop welke toetsen ik indruk? Hoe zorgt de bank ervoor dat het exacte bedrag in mijn handen komt?
@@ -132,7 +133,8 @@
                     <li class="engels disabled">Waiter: Bakkemieske, 2018-2020; Taking orders, making orders, serving
                         meals and drinks
                     </li>
-                    <li class="nederlands">Ober: Brasserie Bakkemieske, 2018-2020; bestellingen opnemen, opdienen, afruimen en
+                    <li class="nederlands">Ober: Brasserie Bakkemieske, 2018-2020; bestellingen opnemen, opdienen,
+                        afruimen en
                         maken
                     </li>
                 </ul>
@@ -195,6 +197,11 @@
             <h2 class="nederlands">Opleidingen</h2>
             <h2 class="engels disabled">Education</h2>
             <section class="flex-gap column-margin">
+                <div class="opleiding-container">
+                    <p>2022-2024</p>
+                    <p class="nederlands onderscheiding">Hogeschool PXL Hasselt; Graduaat in het programmeren</p>
+                    <p class="engels disabled cum-laude">Hogeschool PXL Hasselt; Graduate degree in programming</p>
+                </div>
                 <div class="opleidingen-container">
                     <p>2018-2021</p>
                     <p class="nederlands onjuist">Thomas More Mechelen-Antwerp; Bachelor in de toegepaste
@@ -223,7 +230,12 @@
         <article class="klein greenbackground comeright" id="talen">
             <h2 class="nederlands">Talen</h2>
             <h2 class="engels disabled">Languages</h2>
-            <img src="assets/Antu_arrow-right.svg" alt="pijl naar onder" class="rotatedown pijltje" id="pijltje2">
+            <button id="pijltje2" class="rotatedown pijltje">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                    <path d="m345.44 248.29l-194.29 194.28c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744l171.91-171.91-171.91-171.9c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.29 194.28c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373"
+                          transform="matrix(.03541-.00013.00013.03541 2.98 3.02)" class="antu-arrow"/>
+                </svg>
+            </button>
             <section class="percentagebar_container negative_margin flex-gap">
                 <h3 class="nederlands">Nederlands</h3>
                 <h3 class="engels disabled">Dutch</h3>
@@ -264,19 +276,33 @@
         <article class="groot greenbackground comeleft " id="vaardigheden">
             <h2 class="nederlands">Vaardigheden<span class="hoger kleinetekst">*<u>Tot nu toe</u></span></h2>
             <h2 class="engels disabled">Skills<span class="hoger kleinetekst">*<u>Until now</u></span></h2>
-            <img src="assets/Antu_arrow-right.svg" alt="pijl naar onder" class="rotatedown pijltje" id="pijltje">
+            <button id="pijltje" class="rotatedown pijltje">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22">
+                    <path d="m345.44 248.29l-194.29 194.28c-12.359 12.365-32.397 12.365-44.75 0-12.354-12.354-12.354-32.391 0-44.744l171.91-171.91-171.91-171.9c-12.354-12.359-12.354-32.394 0-44.748 12.354-12.359 32.391-12.359 44.75 0l194.29 194.28c6.177 6.18 9.262 14.271 9.262 22.366 0 8.099-3.091 16.196-9.267 22.373"
+                          transform="matrix(.03541-.00013.00013.03541 2.98 3.02)" class="antu-arrow"/>
+                </svg>
+            </button>
+            <!--            <img src="assets/Antu_arrow-right.svg" alt="pijl naar onder" class="rotatedown pijltje" id="pijltje">-->
             <section class="percentagebar_container negative_margin">
-                <h3>C#-Essentials</h3>
+                <h3>C#</h3>
                 <div class="percentagebar">
-                    <div class="percentage-fill percent95">
-                        <p>95%</p>
+                    <div class="percentage-fill percent70" style="--percentage-fill:75% ">
+                        <p>75%</p>
+                    </div>
+                </div>
+            </section>
+            <section class="percentagebar_container">
+                <h3>React</h3>
+                <div class="percentagebar">
+                    <div class="percentage-fill percent70" style="--percentage-fill:75% ">
+                        <p>75%</p>
                     </div>
                 </div>
             </section>
             <section class="percentagebar_container">
                 <h3>Web-Essentials</h3>
                 <div class="percentagebar">
-                    <div class="percentage-fill percent70">
+                    <div class="percentage-fill" style="--percentage-fill:70% ">
                         <p>
                             70%
                         </p>
@@ -308,21 +334,77 @@
                 </div>
             </section>
             <section class="percentagebar_container">
-                <h3>IT-Orginisation</h3>
+                <h3>Java</h3>
                 <div class="percentagebar">
-                    <div class="percentage-fill percent40">
-                        <p>40%</p>
+                    <div class="percentage-fill percent10">
+                        <p>10%</p>
                     </div>
                 </div>
             </section>
         </article>
     </div>
 
+
+    <div>
+        <article class="groot greenbackground comeleft hogerartiekel ">
+            <h2 class="nederlands">Prestaties</h2>
+            <h2 class="engels disabled">Experience</h2>
+            <div class="experience-img-grid">
+                <div class="left-text">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab autem exercitationem molestias nemo
+                        nisi quam quia repellat sunt tempore, voluptas! Aperiam aspernatur at, fugit modi sed sint
+                        tempora voluptas? Alias, animi aperiam architecto culpa dicta dolorem earum exercitationem fuga
+                        ipsa iste magni non numquam provident, quas quod, suscipit totam voluptas!</p>
+                </div>
+                <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                <div class="right-text">
+                    <p>quia, quos repudiandae sequi sint sit tempora voluptate. Accusantium commodi in quos recusandae
+                        sapiente. Laborum, placeat temporibus? A accusantium adipisci aliquid aut consequatur, delectus
+                        deleniti deserunt dignissimos dolor dolore doloribus explicabo facere facilis fugiat id
+                        inventore, iusto laboriosam libero maiores maxime minus nulla officiis, omnis perferendis
+                        possimus provident quas quasi quis quo ratione recusandae sapiente sequi tempore vel vitae
+                        voluptas voluptatem! </p>
+                </div>
+            </div>
+            <div class="exp-timeline">
+                <button data-tekst-left="something 123">
+                    <img src="assets/FotosTimeline/EersteDotNetApp1.png" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/MijnEersteDotNetApplicatie.png" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/Mijn%20eerste%20querry.png" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+                <button>
+                    <img src="assets/FotosTimeline/vueinstallation.jpg" alt="picture 1">
+                </button>
+            </div>
+
+        </article>
+    </div>
+
+
 </div>
 <footer id="footer">
     <div class="footer-left">
         <p>Seppe Baerts</p>
-        <p>1PRO-h</p>
+        <p>Alumni</p>
     </div>
     <p class="footer-middle">Curriculum vitae</p>
     <button class="footer-right nederlands">Terug naar boven</button>

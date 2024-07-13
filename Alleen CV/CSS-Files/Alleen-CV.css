@@ -1,6 +1,6 @@
 /*
 Even een introductie:
-Dit is mijn CV Die ik als opdracht heb moeten maken (in december 2022). Ik had op dit punt 4 maanden ervaring in coderen.
+Dit is mijn CV Die ik als opdracht heb moeten maken (in december 2022). Ik had op dit punt 4 maanden ervaring in programmeren.
 Verder is hier niet echt veel aan aangepast, ik heb de tekst een beetje aangepast zodat deze nog klopt
 maar qua code is dit vrijwel hetzelfde.
 
@@ -13,6 +13,7 @@ Email: 12202625@student.pxl.be
 ****************************
 *          Legend          *
 ****************************
+0.Variables
 1.Flex Container
 2.Pijltjes
 3.Articles
@@ -24,6 +25,16 @@ Email: 12202625@student.pxl.be
 9.Animations
 10.@media
 */
+
+/*
+****************************
+*      0. Variables        *
+****************************
+*/
+:root{
+    --percentage-fill:0%;
+    --circle-animation:inkleuren 2000ms forwards;
+}
 
 /*
 ****************************
@@ -64,27 +75,44 @@ div{
 *       2.Pijltjes         *
 ****************************
 */
+.antu-arrow{
+    fill:gray;
+    fill-opacity: 55%;
 
+}
 .pijltje{
     position: relative;
     max-width: 3rem;
+    min-width: auto;
+    padding: 0;
+    background: none;
     border: none;
     margin: 0;
     align-self: center;
-    top: 83%;
-    opacity: 0.5;
-    transition: all 200ms ease-out;
+    top: 87%;
+    /*opacity: 0.5;*/
+    transition: filter 200ms ease-out, top 200ms ease-out, rotate 150ms ease-in-out;
 }
 .negative_margin{
     margin-top: -5% ;
 }
 
-#pijltje:hover,
-#pijltje2:hover{
-    opacity: 1;
-    filter: invert(77%) sepia(82%) saturate(429%) hue-rotate(78deg) brightness(200%) contrast(101%) drop-shadow(-5px 0 2px);
+/*#pijltje:hover,*/
+/*#pijltje2:hover{*/
+/*    opacity: 1;*/
+/*    filter: invert(77%) sepia(82%) saturate(429%) hue-rotate(78deg) brightness(200%) contrast(101%) drop-shadow(-5px 0 2px);*/
+/*    cursor: pointer;*/
+/*    box-shadow: none;*/
+/*}*/
+.pijltje:hover{
     cursor: pointer;
-    box-shadow: none;
+    background: none;
+    filter: drop-shadow(0px 0px 2px red);
+
+}
+.pijltje:hover .antu-arrow {
+    fill:var(--alternerend-Even);
+    fill-opacity: 1;
 }
 
 .rotatedown{
@@ -217,6 +245,40 @@ article h2{
 .flex-container > div > .scroll-enabled{
     overflow-y: scroll;
 }
+.experience-img-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    padding-bottom:2.5rem;
+    & div:first-of-type{
+
+    }
+    & img{
+        grid-column: 2;
+        outline: black 1px solid;
+    }
+}
+.exp-timeline{
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+    & button{
+        margin: 0;
+        padding: 0;
+        background: none;
+        border: none;
+        width: unset;
+        max-width: 25%;
+        &:hover img{
+            filter:saturate(200%);
+        }
+    }
+    & img{
+        max-width: 10vw;
+        object-fit: cover;
+
+    }
+}
 /*
 ****************************
 *       4.Percentagebar    *
@@ -246,36 +308,37 @@ h3{
     background: #00B487;
     border-radius: 36px;
     gap: 0;
+    width:var(--percentage-fill);
 }
 .percent10{
-    width: 10%;
+    --percentage-fill: 10%;
 }
 .percent25{
-    width: 25%;
+    --percentage-fill: 25%;
 }
 .percent40{
-    width: 40%;
+    --percentage-fill: 40%;
 }
 .percent50{
-    width: 50%;
+    --percentage-fill: 50%;
 }
 .percent60{
-    width: 60%;
+    --percentage-fill: 60%;
 }
 .percent70{
-    width: 70%;
+    --percentage-fill: 70%;
 }
 .percent85{
-     width: 85%;
+    --percentage-fill: 85%;
  }
 .percent90{
-      width: 90%;
+    --percentage-fill: 90%;
   }
 .percent95{
-      width: 95%;
+    --percentage-fill: 95%;
   }
 .percent100{
-       width: 100%;
+    --percentage-fill: 100%;
    }
 @keyframes percentagebar {
     0%{margin-right: -200%}
@@ -292,27 +355,45 @@ h3{
 *      5.Bolletjes         *
 ****************************
 */
+.aan1{
+    --_animation-delay: 1500ms;
+}
+.aan2{
+    --_animation-delay: 1900ms;
+}
+.aan3{
+    --_animation-delay: 2300ms;
+}
+.aan4{
+    --_animation-delay:2700ms;
+}
+.aan5{
+    --_animation-delay: 3100ms;
+}
+
 .cirkel{
     height: 1.5rem;
     width: 1.5rem;
     border: 2px #197b39 solid;
     border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    --_animation:inkleuren 300ms forwards var(--_animation-delay);
 }
-.aan1{
-    animation: inkleuren 2000ms forwards;
+div[class*='aan'].cirkel::before{
+    content: "";
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    z-index: -1;
+    border-radius: 50vh;
+    inset: 0;
+    margin: auto;
+    background: #00B487;
+    opacity: 0;
+    animation: var(--_animation);
 }
-.aan2{
-    animation: inkleuren 2400ms forwards;
-}
-.aan3{
-    animation: inkleuren 2800ms forwards;
-}
-.aan4{
-    animation: inkleuren 3200ms forwards;
-}
-.aan5{
-    animation: inkleuren 3400ms forwards;
-}
+
 
 .flex-gap{
     display: flex;
@@ -385,19 +466,23 @@ ul{
 .showsmall{
     display: none;
 }
-.onjuist::after{
+.onjuist::after, .false::after, .onderscheiding::after, .cum-laude::after{
     position: relative;
-    content: "*Diploma niet behaald.";
     font-size: 60%;
     bottom: -18px;
     right: 2rem;
 }
+.onjuist::after{
+    content: "*Diploma niet behaald.";
+}
 .false::after{
-    position: relative;
     content: "*Degree not achieved";
-    font-size: 60%;
-    bottom: -18px;
-    right: 2rem;
+}
+.onderscheiding::after{
+    content: "Geslaagd met grote onderscheiding";
+}
+.cum-laude::after{
+    content: "Graduated magna cum laude";
 }
 .small-text{
     font-size: 70%;
@@ -433,9 +518,13 @@ tr:nth-child(odd){
     0%{left:0}
     100%{left:-200%}
 }
-@keyframes inkleuren {
+/*@keyframes inkleuren {
     80%{background-color: rgba(0, 180, 135, 0)}
     100%{background-color: #00B487}
+}*/
+@keyframes inkleuren {
+from{opacity: 0}
+    to{opacity: 1}
 }
 @keyframes fit-content {
     0%{max-height: 18rem}
@@ -465,6 +554,7 @@ tr:nth-child(odd){
     .alleen-cv .vertaal{
         display: initial;
         align-self: initial;
+        margin:initial
     }
     .alleen-cv .disabled{
         display: none;
@@ -499,6 +589,7 @@ tr:nth-child(odd){
         position: fixed;
         left:-100%;
         justify-content: space-evenly;
+        padding: 0;
     }
     .main-picture-div{
         max-width: 40%;
@@ -511,7 +602,7 @@ tr:nth-child(odd){
         height: 150px;
         border-radius: 50%;
     }
-    button{
+    button, .link-button{
         padding: 7% 2% 7% 5%;
         border: none;
         border-top: 2px #2b2b2a solid ;
@@ -589,6 +680,11 @@ tr:nth-child(odd){
     }
     .opleidingen-container{
         gap: 0;
+    }
+    .link-button{
+        width: auto;
+        margin:initial;
+
     }
 }
 @media screen and (max-width: 500px) {
