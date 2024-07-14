@@ -430,8 +430,10 @@ footer button{
     display:flex;
     margin-left: 1%;
 }
-.footer-right{
-    margin-left:auto;
+.footer-middle{
+    position: absolute;
+    inset: 0;
+    text-align: center;
 }
 
 .flex-container section:has(.social-media){
@@ -484,7 +486,7 @@ ul{
 .small-text{
     font-size: 70%;
 }
-#DarkModeButton[aria-expanded="true"] .circle-moon {
+#darkModeButton[aria-expanded="true"] .circle-moon {
     stroke: #41504a;
     fill: #41504a;
 }
@@ -528,7 +530,6 @@ from{opacity: 0}
     100%{max-height: 80rem}
 }
 @keyframes shadow-go-wee-woo{
-
     0%{box-shadow: var(--shadow) 0 -5px 16px 1px}
     11%{box-shadow: var(--shadow) 0 -10px 16px 1px}
     22%{box-shadow: var(--shadow) -10px -10px 16px 1px}
@@ -622,7 +623,7 @@ from{opacity: 0}
         border-radius: 50%;
     }
     body .show{
-        animation: menucome 1000ms forwards;
+        animation: menucome 500ms forwards;
     }
     .menu-icon{
         display: inline;
@@ -638,7 +639,7 @@ from{opacity: 0}
         display: inherit;
     }
     .hide {
-        animation: menugo 1000ms forwards;
+        animation: menugo 500ms forwards;
     }
     .flex-container article section{
         margin-left: 1%;

@@ -1,129 +1,92 @@
 let darkmodeButton;
-let isExpanded;
 let pijltje = document.getElementsByClassName("pijltje")
 let vertaal = document.getElementsByClassName("vertaal")
-let backToTop = document.getElementsByClassName("footer-right")
-let button = document.getElementById("hamburgerbutton");
+// let backToTop = document.getElementsByClassName("footer-right")
+let hamburgerButton = document.getElementById("hamburgerbutton");
 const bigPicture = document.querySelector("#bigTimelinePicture");
 let timelinePictures = document.getElementById("timelinePictures");
 let leftText = document.querySelector("#pictureTimelineLeftText");
 let rightText = document.querySelector("#pictureTimeLineRightText");
+//TODO: use media querry to put left and right text below each other.
 const pictureTimeline = [
     {
         leftText: "This is the first left text",
         rightText: "This is the first right text",
         imgSource: "assets/FotosTimeline/MijnEersteDotNetApplicatie.png",
         alt: "altTest",
-        date:"26/08/2023"
+        date: "26/08/2023"
     },
     {
         leftText: "This is the second left text",
         rightText: "This is the second right text",
         imgSource: "assets/FotosTimeline/Mijn%20eerste%20querry.png",
         alt: "secondAltTest",
-        date:"13/09/2023"
+        date: "13/09/2023"
     },
 ]
 
 
-
-document.getElementById("darkmode").addEventListener("click", darkModeClick)
-document.getElementById("DarkModeButton").addEventListener("click", darkModeClick)
-document.getElementById("hamburgerbutton").addEventListener("click", expandArea);
-document.getElementById("hamburgerbutton").addEventListener("click", toggleNavbar);
-
+/*
+*********************
+* Timeline functions
+*********************
+*/
 
 function createTimelineImages() {
     for (let pic of pictureTimeline) {
         let container = document.createElement("div");
         let imageNode = document.createElement("img");
         let textNode = document.createElement("p");
-        
+
+        timelinePictures.appendChild(container);
         container.appendChild(imageNode);
         container.appendChild(textNode);
         container.classList.add("small-timeline-image-container");
-        
+
         textNode.textContent = pic.date;
         imageNode.src = pic.imgSource;
         imageNode.alt = pic.alt;
-        imageNode.addEventListener("click",() => setBigPicture(pic))
-        timelinePictures.appendChild(container);
+        imageNode.addEventListener("click", () => setBigPicture(pic))
     }
     setBigPicture(pictureTimeline[0]);
 
 }
-function setBigPicture(pic){
+
+function setBigPicture(pic) {
     bigPicture.setAttribute("src", pic.imgSource);
     leftText.textContent = pic.leftText
     rightText.textContent = pic.rightText
 }
 
-for (let i = 0; i < 2; i++) {
-    pijltje[i].addEventListener("click", uitklappen)
-}
-
-// backToTop[0].ariaExpanded.replace("true", "false")
-for (let i = 0; i < vertaal.length; i++) {
-    vertaal[i].addEventListener("click", vertaalPagina)
-}
-// pijltje[2].addEventListener("click", hideFooter)
-backToTop[0].addEventListener("click", goToTop)
-backToTop[1].addEventListener("click", goToTop)
-
-document.body.onload = function () {
-    darkmodeButton = document.getElementById("DarkModeButton")
-    darkModeCheck();
-}
-
 function darkModeCheck() {
-
     if (!localStorage.getItem("darkMode")) {
         localStorage.setItem("darkMode", "false");
     } else if (localStorage.getItem("darkMode") === "true") {
-        ToggleDarkMode();
+        toggleDarkmode();
     }
 }
 
-function ToggleDarkMode() {
+function toggleDarkmode() {
     document.body.classList.toggle("dark-mode");
-    if (darkmodeButton.ariaExpanded === "true") {
-        darkmodeButton.ariaExpanded = "false";
-    } else {
-        darkmodeButton.ariaExpanded = "true"
-    }
+    toggleAreaExpanded(darkmodeButton)
 }
 
-function expandArea() {
-    if (isExpanded === true) {
-        button.ariaExpanded = "false";
-        isExpanded = false;
-    } else {
-        button.ariaExpanded = "true";
-        isExpanded = true;
-    }
+function toggleAreaExpanded(targetButton) {
+    targetButton.ariaExpanded = targetButton.ariaExpanded === "true"? "false" : "true";
 }
 
 function darkModeClick() {
-    if (localStorage.getItem("darkMode") === "true") {
-        localStorage.setItem("darkMode", "false");
-        ToggleDarkMode();
-    } else if (localStorage.getItem("darkMode") === "false") {
-        localStorage.setItem("darkMode", "true");
-        ToggleDarkMode();
-    }
-}
-
-function goToTop() {
-    window.location.href = '#top'
+    localStorage.setItem("darkMode", localStorage.getItem("darkMode") === "true"? "false" : "true");
+    toggleDarkmode();
 }
 
 function uitklappen() {
     document.getElementById("vaardigheden").classList.toggle("hogerartiekel");
+    document.getElementById("talen").classList.toggle("hogerartiekel")
     document.getElementById("pijltje").classList.toggle("rotateup");
     document.getElementById("pijltje").classList.toggle("rotatedown");
     document.getElementById("pijltje2").classList.toggle("rotateup");
     document.getElementById("pijltje2").classList.toggle("rotatedown");
-    document.getElementById("talen").classList.toggle("hogerartiekel")
 }
 
 function vertaalPagina() {
@@ -136,26 +99,26 @@ function vertaalPagina() {
 }
 
 function toggleNavbar() {
-    let navbar = document.getElementById('nav')
+    let navbar = document.getElementsByTagName('nav')[0];
     navbar.classList.toggle('show')
     navbar.classList.toggle('hide')
 }
 
-createTimelineImages();
+window.addEventListener("load", () => {
+    darkmodeButton = document.getElementById("darkModeButton")
 
+    darkmodeButton.addEventListener("click", darkModeClick)
+    document.getElementById("darkmode").addEventListener("click", darkModeClick)
+    document.getElementById("hamburgerbutton").addEventListener("click", ( ) => toggleAreaExpanded(hamburgerButton));
+    document.getElementById("hamburgerbutton").addEventListener("click", toggleNavbar);
 
-// function expandArea(){
-// // OWDAMN THIS WORKS
-//   if(isExpanded === true){
-//     button.ariaExpanded = "false";
-//     isExpanded = false;
-//   }
-//   else{
-//     button.ariaExpanded = "true";
-//     isExpanded = true;
-//   }
-// }
-// function hideFooter(){
-//     let footer = document.getElementById("footer");
-//     footer.classList.toggle()
-// }
+    for (let i = 0; i < pijltje.length; i++) {
+        pijltje[i].addEventListener("click", uitklappen)
+    }
+    for (let i = 0; i < vertaal.length; i++) {
+        vertaal[i].addEventListener("click", vertaalPagina)
+    }
+
+    darkModeCheck();
+    createTimelineImages();
+});

@@ -192,11 +192,11 @@ z-index: 13;
 *    5.5.DarkModeSVG        *
 ****************************
 */
-#DarkModeButton{
+#darkModeButton{
     background:transparent;
     border:none;
 }
-#DarkModeButton:hover{
+#darkModeButton:hover{
     cursor:pointer;
 }
 .circle-moon{
@@ -214,17 +214,17 @@ z-index: 13;
 .stroke{
     fill:yellow;
 }
-#DarkModeButton[aria-expanded="true"] .circle-moon{
+#darkModeButton[aria-expanded="true"] .circle-moon{
     cx:60;
     cy:50;
     stroke: black;
     fill: black;
 }
-#DarkModeButton[aria-expanded="true"] .cirlce-sun{
+#darkModeButton[aria-expanded="true"] .cirlce-sun{
     fill:gray;
     transition: fill 600ms ease;
 }
-#DarkModeButton[aria-expanded="true"] .stroke{
+#darkModeButton[aria-expanded="true"] .stroke{
     opacity:0;
     x:25;
     y:50;
