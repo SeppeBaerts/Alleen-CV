@@ -126,7 +126,12 @@ window.addEventListener("load", () => {
     for (let i = 0; i < vertaal.length; i++) {
         vertaal[i].addEventListener("click", vertaalPagina)
     }
+    if(!localStorage.getItem("hadAlert")){
 
+           setTimeout(() =>
+           alert("Eerst en vooral dankjewel om mijn cv online te bekijken :D, jammergenoeg is deze site is momenteel in de vroege béta. Voor het beste resultaat, kun je het best bekijken op een computer. \n\n First and foremost, thank you for taking the time to look at my cv online :D, sadly it's only an early bèta version. For the best user-experience, use a computer."),1500);
+           localStorage.setItem("hadAlert", "true");
+    }
     darkModeCheck();
     createTimelineImages();
 });
