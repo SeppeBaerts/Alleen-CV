@@ -1,12 +1,11 @@
 let darkmodeButton;
-let pijltje = document.getElementsByClassName("pijltje")
-let vertaal = document.getElementsByClassName("vertaal")
-// let backToTop = document.getElementsByClassName("footer-right")
-let hamburgerButton = document.getElementById("hamburgerbutton");
-const bigPicture = document.querySelector("#bigTimelinePicture");
-let timelinePictures = document.getElementById("timelinePictures");
-let leftText = document.querySelector("#pictureTimelineLeftText");
-let rightText = document.querySelector("#pictureTimeLineRightText");
+let pijltje;
+let vertaal;
+let hamburgerButton;
+let bigPicture;
+let timelinePictures;
+let leftText;
+let rightText;
 //TODO: use media querry to put left and right text below each other.
 const pictureTimeline = [
     {
@@ -107,7 +106,14 @@ function toggleNavbar() {
 }
 
 window.addEventListener("load", () => {
-    darkmodeButton = document.getElementById("darkModeButton")
+    darkmodeButton = document.getElementById("darkModeButton");
+    pijltje = document.getElementsByClassName("pijltje");
+    vertaal = document.getElementsByClassName("vertaal")
+    hamburgerButton = document.getElementById("hamburgerbutton");
+    bigPicture = document.querySelector("#bigTimelinePicture");
+    timelinePictures = document.getElementById("timelinePictures");
+    leftText = document.querySelector("#pictureTimelineLeftText");
+    rightText = document.querySelector("#pictureTimeLineRightText");
 
     darkmodeButton.addEventListener("click", darkModeClick)
     document.getElementById("darkmode").addEventListener("click", darkModeClick)
