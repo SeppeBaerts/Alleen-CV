@@ -10,18 +10,20 @@ let rightText = document.querySelector("#pictureTimeLineRightText");
 //TODO: use media querry to put left and right text below each other.
 const pictureTimeline = [
     {
-        leftText: "This is the first left text",
-        rightText: "This is the first right text",
-        imgSource: "assets/FotosTimeline/MijnEersteDotNetApplicatie.png",
+        leftText: "19 september 2022 begon mijn avontuur. Ik had nog nooit code geprogrammeerd. Wel al zeer veel mee gespeeld, maar het is natuurlijk wel moeilijk om te beginnen als je niet begrijpt wat '.NET' eigenlijk is... " +
+            "Daarom ben ik toch wel met een klein hartje begonnen aan de opleiding. Ik wilde het enorm graag leren, maar ik had het al ene paar keer via Youtube geprobeerd, en dat liep meestal niet goed, of dat was niet uitbreidbaar...",
+        rightText: "Het klinkt misschien gek, maar ik herinner mij nog dat ik mijn eerste querry schreef en dacht 'Dit resultaat is er door mij gekomen... IK heb dit gedaan...' en opeens gingen alle zorgen weg en zag ik mijzelf iets " +
+            "waarvan ik gisteren niet had kunnen hopen, het was zo een euphorisch gevoel, zo een brandend gevoel, ik zit dit ook met een glimlach te schrijven omdat ik er alleen maar aan terugdenk",
+        imgSource: "assets/FotosTimeline/Mijn%20eerste%20querry.png",
         alt: "altTest",
-        date: "26/08/2023"
+        date: "19/09/2022"
     },
     {
-        leftText: "This is the second left text",
+        leftText: "Dit was mijn eerste contact met .NET en C#. Ik heb hier eigenlijk enorm veel schrik voor gehad omdat dit altijd als het 'buisvak' werd gezien en iedereen rondom mij toch al wat kennis over coderen had. ",
         rightText: "This is the second right text",
-        imgSource: "assets/FotosTimeline/Mijn%20eerste%20querry.png",
+        imgSource: "assets/FotosTimeline/MijnEersteDotNetApplicatie.png",
         alt: "secondAltTest",
-        date: "13/09/2023"
+        date: "22/09/2022"
     },
 ]
 
