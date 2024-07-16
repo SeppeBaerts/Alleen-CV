@@ -52,8 +52,8 @@ body{
     margin-top: unset;
     margin-left: unset;
     margin-right: unset;
-    font-family: "HP Simplified", sans-serif;
-    font-size: 130%;
+    font-family: "HP Simplified",system-ui, sans-serif;
+    font-size: 1.3rem;
     overflow-x: hidden;
     overscroll-behavior-x: none;
 }
@@ -450,7 +450,6 @@ button[aria-expanded="true"] .middle-line{
         flex-direction: column;
     }
 }
-
 @media screen and (max-width: 980px) {
     .darkmodebutt,
     .dark-mode .darkmodebutt,

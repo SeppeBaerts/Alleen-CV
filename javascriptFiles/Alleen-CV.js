@@ -6,7 +6,6 @@ let bigPicture;
 let timelinePictures;
 let leftText;
 let rightText;
-//TODO: use media querry to put left and right text below each other.
 const pictureTimeline = [
     {
         leftText: "19 september 2022 begon mijn avontuur. Ik had nog nooit code geprogrammeerd. Wel al zeer veel mee gespeeld, maar het is natuurlijk wel moeilijk om te beginnen als je niet begrijpt wat '.NET' eigenlijk is... " +
@@ -14,16 +13,52 @@ const pictureTimeline = [
         rightText: "Het klinkt misschien gek, maar ik herinner mij nog dat ik mijn eerste querry schreef en dacht 'Dit resultaat is er door mij gekomen... IK heb dit gedaan...' en opeens gingen alle zorgen weg en zag ik mijzelf iets " +
             "waarvan ik gisteren niet had kunnen hopen, het was zo een euphorisch gevoel, zo een brandend gevoel, ik zit dit ook met een glimlach te schrijven omdat ik er alleen maar aan terugdenk",
         imgSource: "assets/FotosTimeline/Mijn%20eerste%20querry.png",
-        alt: "altTest",
+        alt: "een foto van mijn eerste querry, het gaat als volgt: 'select * from medewerkers",
         date: "19/09/2022"
     },
     {
         leftText: "Dit was mijn eerste contact met .NET en C#. Ik heb hier eigenlijk enorm veel schrik voor gehad omdat dit altijd als het 'buisvak' werd gezien en iedereen rondom mij toch al wat kennis over coderen had. ",
         rightText: "This is the second right text",
         imgSource: "assets/FotosTimeline/MijnEersteDotNetApplicatie.png",
-        alt: "secondAltTest",
+        alt: "Een foto van code die ervoor zorgt dat een knop, 'welkom in de wereld van C#' gaat zetten op het scherm",
         date: "22/09/2022"
     },
+    {
+        leftText: "Nadat ik een maand zelf had gewerkt, ben ik dingen beginnen uittesten, ik wilde heel graag weten hoe iets werkte en de beste manier is gewoon beginnen coderen.",
+        rightText: "",
+        imgSource: "assets/FotosTimeline/het_resultaat.png",
+        alt: "table dude",
+        date: "12/10/2022"
+    },
+    {
+        leftText: "Hier heb ik gamernamen gemaakt door een sql query te voeren",
+        rightText: "",
+        imgSource: "assets/FotosTimeline/Gamername.png",
+        alt: "querry",
+        date: "22/10/2022"
+    },
+    {
+        leftText: "Doordat ik in de les altijd voor was en het antwoord niet altijd mocht geven aangezien anders de klas niet meer zou meewerken is er mij gevraagd om een Snake game te maken. Hoewel dit inderdaad zeer simplistisch is, heb ik deze game gemaakt toen ik nog geen 4 maanden codeerde.",
+        rightText: "",
+        imgSource: "assets/FotosTimeline/SnakeGame.png",
+        alt: "snake",
+        date: "08/12/2022"
+    },
+    {
+        leftText: "",
+        rightText: "",
+        imgSource: "assets/FotosTimeline/Portfolio_3D_tryout_Dec1.png",
+        alt: "secondAltTest",
+        date: "01/12/2022"
+    },
+    {
+        leftText: "",
+        rightText: "",
+        imgSource: "assets/FotosTimeline/BlackJack.png",
+        alt: "secondAltTest",
+        date: "06/01/2023"
+    },
+
 ]
 
 

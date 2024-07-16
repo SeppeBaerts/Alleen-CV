@@ -31,9 +31,9 @@ Email: 12202625@student.pxl.be
 *      0. Variables        *
 ****************************
 */
-:root{
-    --percentage-fill:0%;
-    --circle-animation:inkleuren 2000ms forwards;
+:root {
+    --percentage-fill: 0%;
+    --circle-animation: inkleuren 2000ms forwards;
 }
 
 /*
@@ -42,19 +42,21 @@ Email: 12202625@student.pxl.be
 ****************************
 */
 
-.flex-container{
-    display:flex;
+.flex-container {
+    display: flex;
     flex-direction: column;
-    gap:2rem;
-    margin:5vh 10vw;
+    gap: 2rem;
+    margin: 5vh 10vw;
     min-width: 12rem;
     max-width: 80vw;
     transition: all 200ms ease-in-out;
 }
-div{
+
+div {
     display: flex;
     gap: 3rem;
 }
+
 .flex-container article {
     max-height: 18rem;
     min-height: 18rem;
@@ -63,7 +65,8 @@ div{
     animation: spring-from-left 2000ms;
     transition: all 500ms ease-out;
 }
-.flex-container .hogerartiekel{
+
+.flex-container .hogerartiekel {
     max-height: 80rem;
     min-height: 18rem;
     transition: all 1000ms ease-out;
@@ -75,12 +78,13 @@ div{
 *       2.Pijltjes         *
 ****************************
 */
-.antu-arrow{
-    fill:gray;
+.antu-arrow {
+    fill: gray;
     fill-opacity: 55%;
 
 }
-.pijltje{
+
+.pijltje {
     position: relative;
     max-width: 3rem;
     min-width: auto;
@@ -93,8 +97,9 @@ div{
     /*opacity: 0.5;*/
     transition: filter 200ms ease-out, top 200ms ease-out, rotate 150ms ease-in-out;
 }
-.negative_margin{
-    margin-top: -5% ;
+
+.negative_margin {
+    margin-top: -5%;
 }
 
 /*#pijltje:hover,*/
@@ -104,24 +109,25 @@ div{
 /*    cursor: pointer;*/
 /*    box-shadow: none;*/
 /*}*/
-.pijltje:hover{
+.pijltje:hover {
     cursor: pointer;
     background: none;
     filter: drop-shadow(0px 0px 2px red);
 
 }
+
 .pijltje:hover .antu-arrow {
-    fill:var(--alternerend-Even);
+    fill: var(--alternerend-Even);
     fill-opacity: 1;
 }
 
-.rotatedown{
+.rotatedown {
     rotate: 90deg;
     top: 65%;
 }
 
-.rotateup{
-    rotate:270deg;
+.rotateup {
+    rotate: 270deg;
 }
 
 /*
@@ -129,22 +135,24 @@ div{
 *        3.Articles        *
 ****************************
 */
-article{
-    display:flex;
+article {
+    display: flex;
     flex-direction: column;
     border: 2px black solid;
     border-radius: 10px;
     box-shadow: 10px 10px 20px;
     transition: all 0.5s ease-in-out;
 }
-article p{
+
+article p {
     margin: 0 0 0 5px;
 }
-article h2{
+
+article h2 {
     margin: 5px;
 }
 
-.main-picture-div{
+.main-picture-div {
     display: flex;
     border-bottom-left-radius: 50vh;
     border-bottom-right-radius: 50vh;
@@ -157,141 +165,179 @@ article h2{
     max-width: 45%;
     transition: filter 300ms ease-in-out;
 }
-.main-picture-div:hover{
+
+.main-picture-div:hover {
     filter: drop-shadow(5px 0px 20px black);
 }
-.dark-mode .main-picture-div:hover{
+
+.dark-mode .main-picture-div:hover {
     filter: drop-shadow(5px 0px 20px white);
 }
-.main-picture-div a{
-    background-image: image("assets/FotosCV/background_white.jpg");
+
+.main-picture-div a {
+    background-image: url('../assets/FotosCV/background_white.png');
     border-radius: 50vh;
     border: 2px black solid;
     transition: all 500ms ease-in-out;
     height: 197px;
 }
-.dark-mode .main-picture-div a{
-    background-image: image("assets/FotosCV/background_blue.png");
 
-}/*SPEEL HIER NOG WAT MEE*/
+.dark-mode .main-picture-div a {
+    background-image: url("../assets/FotosCV/background_blue.png");
+
+}
+
+/*SPEEL HIER NOG WAT MEE*/
 .main-picture-div:active,
-.dark-mode .main-picture-div:active{
+.dark-mode .main-picture-div:active {
     filter: none;
 }
-.main-picture-div a:active{
-    border-color:white;
+
+.main-picture-div a:active {
+    border-color: white;
 
 }
-.main-picture-div >a> img{
-    max-width:110%;
+
+.main-picture-div > a > img {
+    max-width: 110%;
     transition: scale 500ms ease-in-out,
     bottom 500ms ease-in-out;
     position: relative;
     left: -5px;
     top: -15px;
 }
-.klein{
+
+.klein {
     flex: 1;
     padding: 1rem;
 }
+
 .groot {
     flex: 2;
     padding: 1rem;
 }
-.full{
-    flex:1;
+
+.full {
+    flex: 1;
     padding: 1rem;
 }
 
-.rowdirect{
+.rowdirect {
     display: flex;
     flex-direction: row;
     align-content: center;
     align-items: center;
 }
-.column-margin{
+
+.column-margin {
     display: flex;
     flex-direction: column;
 }
-.column-margin:first-child{
+
+.column-margin:first-child {
     margin-top: 1rem;
 }
-.column-margin:last-child{
+
+.column-margin:last-child {
     margin-bottom: 1rem;
 }
-.greenbackground{
-    background:rgb(129 159 147/0.50);
+
+.greenbackground {
+    background: rgb(129 159 147/0.50);
 }
-.hoger{
+
+.hoger {
     position: relative;
     top: -10px;
     left: 5px;
 }
-.kleinetekst{
+
+.kleinetekst {
     font-size: 60%;
 }
-.flex-container article section{
+
+.flex-container article section {
     margin-left: 50px;
 }
-.flex-container section:has(ul){
+
+.flex-container section:has(ul) {
     margin-left: 10px;
     margin-top: 5px;
 }
-.flex-container article .natural{
+
+.flex-container article .natural {
     display: inherit;
     gap: normal;
 }
 
-.flex-container > div > .scroll-enabled{
+.flex-container > div > .scroll-enabled {
     overflow-y: scroll;
 }
-.experience-img-grid{
+
+article.groot.hogerartiekel:has(.experience-img-grid) {
+    container: img-grid-container / inline-size;
+    max-height: unset;
+    overflow: scroll;
+}
+
+
+.experience-img-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     place-items: center;
-    padding-bottom:2.5rem;
-    & img{
+    padding-bottom: 2.5rem;
+
+    & img {
         max-width: 40vw;
         grid-column: 2;
         outline: black 1px solid;
     }
 }
-.exp-timeline{
+
+.exp-timeline {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
-    & .small-timeline-image-container{
+
+    & .small-timeline-image-container {
         display: grid;
         grid-template-rows: 1fr auto;
-        gap:.5rem;
+        gap: .5rem;
         justify-items: center;
-    & img{
-        max-width: 10vw;
-        object-fit: cover;
-        filter: grayscale(45%);
-        &:hover{
-            filter:saturate(200%);
-            cursor: pointer;
+        align-items: end;
+
+        & img {
+            max-width: 20vw;
+            max-height: 20vh;
+            object-fit: cover;
+            filter: grayscale(45%);
+            
+            &:hover {
+                filter: saturate(200%);
+                cursor: pointer;
+            }
         }
     }
-    }
 }
+
 /*
 ****************************
 *       4.Percentagebar    *
 ****************************
 */
-h3{
-    flex:1;
+h3 {
+    flex: 1;
 }
-.percentagebar_container{
+
+.percentagebar_container {
     display: flex;
     flex-direction: row;
     align-content: center;
     align-items: center;
     justify-content: space-around;
 }
-.percentagebar{
+
+.percentagebar {
     width: 80%;
     min-height: 3rem;
     border: 2px #197b39 solid;
@@ -299,85 +345,110 @@ h3{
     flex: 3;
     animation: percentagebar 2000ms
 }
-.percentage-fill{
+
+.percentage-fill {
     min-height: 3rem;
     padding-top: 0.7rem;
     background: #00B487;
     border-radius: 36px;
     gap: 0;
-    width:var(--percentage-fill);
+    width: var(--percentage-fill);
 }
-.percent10{
+
+.percent10 {
     --percentage-fill: 10%;
 }
-.percent25{
+
+.percent25 {
     --percentage-fill: 25%;
 }
-.percent40{
+
+.percent40 {
     --percentage-fill: 40%;
 }
-.percent50{
+
+.percent50 {
     --percentage-fill: 50%;
 }
-.percent60{
+
+.percent60 {
     --percentage-fill: 60%;
 }
-.percent70{
+
+.percent70 {
     --percentage-fill: 70%;
 }
-.percent85{
+
+.percent85 {
     --percentage-fill: 85%;
- }
-.percent90{
-    --percentage-fill: 90%;
-  }
-.percent95{
-    --percentage-fill: 95%;
-  }
-.percent100{
-    --percentage-fill: 100%;
-   }
-@keyframes percentagebar {
-    0%{margin-right: -200%}
-    35%{margin-right: -200%}
-    100%{margin-right: 0}
 }
+
+.percent90 {
+    --percentage-fill: 90%;
+}
+
+.percent95 {
+    --percentage-fill: 95%;
+}
+
+.percent100 {
+    --percentage-fill: 100%;
+}
+
+@keyframes percentagebar {
+    0% {
+        margin-right: -200%
+    }
+    35% {
+        margin-right: -200%
+    }
+    100% {
+        margin-right: 0
+    }
+}
+
 .flex-container div article:hover {
-    box-shadow:10px 10px 20px rgb(129 159 147);
-    border-color:rgb(129 159 147);
+    box-shadow: 10px 10px 20px rgb(129 159 147);
+    border-color: rgb(129 159 147);
 
 }
+
 /*
 ****************************
 *      5.Bolletjes         *
 ****************************
 */
-.aan1{
+.aan1 {
     --_animation-delay: 1500ms;
 }
-.aan2{
+
+.aan2 {
     --_animation-delay: 1900ms;
 }
-.aan3{
+
+.aan3 {
     --_animation-delay: 2300ms;
 }
-.aan4{
-    --_animation-delay:2700ms;
+
+.aan4 {
+    --_animation-delay: 2700ms;
 }
-.aan5{
+
+.aan5 {
     --_animation-delay: 3100ms;
 }
 
-.cirkel{
+.cirkel {
     height: 1.5rem;
     width: 1.5rem;
     border: 2px #197b39 solid;
     border-radius: 20px;
     position: relative;
     overflow: hidden;
-    --_animation:inkleuren 300ms forwards var(--_animation-delay);
+    --_animation: inkleuren 300ms forwards var(--_animation-delay);
 }
-div[class*='aan'].cirkel::before{
+
+div[class*='aan'].cirkel::before {
     content: "";
     width: inherit;
     height: inherit;
@@ -392,154 +463,218 @@ div[class*='aan'].cirkel::before{
 }
 
 
-.flex-gap{
+.flex-gap {
     display: flex;
     gap: 1rem;
     margin-right: 50px;
 }
 
-.bolletjes_container{
+.bolletjes_container {
     gap: 0;
 }
+
 /*
 ****************************
 *        7.Footer          *
 ****************************
 */
-footer{
+footer {
     display: flex;
     background: var(--gray-ish);
-    position:relative;
-    bottom:-10px;
-    left:0;
-    right:0;
+    position: relative;
+    bottom: -10px;
+    left: 0;
+    right: 0;
     color: white;
     height: 2%;
     align-items: center;
     transition: all 500ms ease-in-out;
 }
-footer button{
+
+footer button {
     padding: 1%;
 }
-.dark-mode footer{
+
+.dark-mode footer {
     background: var(--dark-mode-nav);
     color: white;
 }
-.footer-left{
-    margin-right:auto;
-    display:flex;
+
+.footer-left {
+    margin-right: auto;
+    display: flex;
     margin-left: 1%;
 }
-.footer-middle{
+
+.footer-middle {
     position: absolute;
     inset: 0;
     text-align: center;
 }
 
-.flex-container section:has(.social-media){
-    margin:0;
+.flex-container section:has(.social-media) {
+    margin: 0;
     box-shadow: none;
 }
-.hide-Footer{
+
+.hide-Footer {
     height: 0;
 }
+
 /*
 ****************************
 *        8.Overige         *
 ****************************
 */
 
-ul{
+ul {
     list-style-image: url("../assets/circle-svgrepo-com.svg");
     margin: 0;
+    & li {
+        margin-bottom: 1rem;
+    }
 }
-.flex-container section a .social-media{
+
+.flex-container section a .social-media {
     border-radius: inherit;
     border: none;
     max-width: 15%;
     box-shadow: none;
 }
-.social-media:hover{
+
+.social-media:hover {
     filter: invert(77%) sepia(82%) saturate(429%) hue-rotate(78deg) brightness(101%) contrast(101%);
 }
-.showsmall{
+
+.showsmall {
     display: none;
 }
-.onjuist::after, .false::after, .onderscheiding::after, .cum-laude::after{
+
+.onjuist::after, .false::after, .onderscheiding::after, .cum-laude::after {
     position: relative;
     font-size: 60%;
     bottom: -18px;
     right: 2rem;
 }
-.onjuist::after{
+
+.onjuist::after {
     content: "*Diploma niet behaald.";
 }
-.false::after{
+
+.false::after {
     content: "*Degree not achieved";
 }
-.onderscheiding::after{
+
+.onderscheiding::after {
     content: "Geslaagd met grote onderscheiding";
 }
-.cum-laude::after{
+
+.cum-laude::after {
     content: "Graduated magna cum laude";
 }
-.small-text{
+
+.small-text {
     font-size: 70%;
 }
+
 #darkModeButton[aria-expanded="true"] .circle-moon {
     stroke: #41504a;
     fill: #41504a;
 }
+
 /*
 ****************************
 *        9.Tabel          *
 ****************************
 */
-td{
+td {
     border-radius: 5px;
 }
-tr:nth-child(even){
+
+tr:nth-child(even) {
     background-color: var(--alternerend-Even);
 }
-tr:nth-child(odd){
+
+tr:nth-child(odd) {
     background-color: var(--alternerend-Oneven);
 }
+
 /*
 ****************************
 *      10.Animations       *
 ****************************
 */
 @keyframes menucome {
-    0%{left: -200%}
-    100%{left: 0}
+    0% {
+        left: -200%
+    }
+    100% {
+        left: 0
+    }
 }
+
 @keyframes menugo {
-    0%{left:0}
-    100%{left:-200%}
+    0% {
+        left: 0
+    }
+    100% {
+        left: -200%
+    }
 }
+
 /*@keyframes inkleuren {
     80%{background-color: rgba(0, 180, 135, 0)}
     100%{background-color: #00B487}
 }*/
 @keyframes inkleuren {
-from{opacity: 0}
-    to{opacity: 1}
+    from {
+        opacity: 0
+    }
+    to {
+        opacity: 1
+    }
 }
+
 @keyframes fit-content {
-    0%{max-height: 18rem}
-    100%{max-height: 80rem}
+    0% {
+        max-height: 18rem
+    }
+    100% {
+        max-height: 80rem
+    }
 }
-@keyframes shadow-go-wee-woo{
-    0%{box-shadow: var(--shadow) 0 -5px 16px 1px}
-    11%{box-shadow: var(--shadow) 0 -10px 16px 1px}
-    22%{box-shadow: var(--shadow) -10px -10px 16px 1px}
-    33%{box-shadow: var(--shadow) -10px 0 16px 1px}
-    44%{box-shadow: var(--shadow) -10px 10px 16px 1px }
-    55%{box-shadow: var(--shadow) 0 10px 16px 1px}
-    66%{box-shadow: var(--shadow) 10px 10px 16px 1px}
-    77%{box-shadow: var(--shadow) 10px 0 16px 1px}
-    88%{box-shadow: var(--shadow) 10px -10px 16px 1px}
-    100%{box-shadow: var(--shadow) 5px -10px 16px 1px}
+
+@keyframes shadow-go-wee-woo {
+    0% {
+        box-shadow: var(--shadow) 0 -5px 16px 1px
+    }
+    11% {
+        box-shadow: var(--shadow) 0 -10px 16px 1px
+    }
+    22% {
+        box-shadow: var(--shadow) -10px -10px 16px 1px
+    }
+    33% {
+        box-shadow: var(--shadow) -10px 0 16px 1px
+    }
+    44% {
+        box-shadow: var(--shadow) -10px 10px 16px 1px
+    }
+    55% {
+        box-shadow: var(--shadow) 0 10px 16px 1px
+    }
+    66% {
+        box-shadow: var(--shadow) 10px 10px 16px 1px
+    }
+    77% {
+        box-shadow: var(--shadow) 10px 0 16px 1px
+    }
+    88% {
+        box-shadow: var(--shadow) 10px -10px 16px 1px
+    }
+    100% {
+        box-shadow: var(--shadow) 5px -10px 16px 1px
+    }
 }
 
 
@@ -548,143 +683,215 @@ from{opacity: 0}
 *        11.@media         *
 ****************************
 */
+
+@container img-grid-container (max-width: 1000px) {
+    .experience-img-grid {
+        grid-template-rows: 1fr auto auto;
+        grid-template-columns: unset;
+        gap: .5rem;
+
+        & img {
+            max-width: 100%;
+            grid-row: 1;
+            grid-column: unset;
+        }
+    }
+
+    .exp-timeline {
+        flex-direction: row;
+    }
+}
+
+@container img-grid-container (max-width: 700px) {
+    .exp-timeline {
+        & .small-timeline-image-container {
+            max-width: 45cqw;
+
+            & img {
+                max-width: 100%;
+
+            }
+        }
+    }
+}
+
+@container img-grid-container (max-width:550px) {
+    .exp-timeline {
+
+    }
+}
+
 @media screen and (max-width: 1250px) {
-    .alleen-cv .vertaal{
+    .alleen-cv .vertaal {
         display: initial;
         align-self: initial;
-        margin:initial
+        margin: initial
     }
-    .alleen-cv .disabled{
+
+    .alleen-cv .disabled {
         display: none;
     }
-    .alleen-cv #darkmode{
+
+    .alleen-cv #darkmode {
         margin: initial;
         display: initial;
     }
 
 }
+
 @media screen and (max-width: 1050px) {
-    .flex-container{
+    .flex-container {
         margin: 3% 3%;
         flex-direction: column;
         max-width: initial;
     }
 
 }
-@media screen and (max-width: 900px){
-    div{
+
+@media screen and (max-width: 900px) {
+
+    div {
         flex-direction: column;
     }
-    .margin-right{
+
+    .margin-right {
         margin: initial;
         display: initial;
     }
-    nav{
+
+    nav {
         height: 100%;
         width: 100%;
         flex-direction: column;
         align-content: stretch;
         position: fixed;
-        left:-100%;
+        left: -100%;
         justify-content: space-evenly;
         padding: 0;
     }
-    .main-picture-div{
+
+    .main-picture-div {
         max-width: 40%;
     }
-    .main-picture-div img{
+
+    .main-picture-div img {
         max-width: 100%;
     }
+
     .main-picture-div a {
         max-width: 150px;
         height: 150px;
         border-radius: 50%;
     }
-    button, .link-button{
+
+    button, .link-button {
         padding: 7% 2% 7% 5%;
         border: none;
-        border-top: 2px #2b2b2a solid ;
+        border-top: 2px #2b2b2a solid;
         border-bottom: 2px #2b2b2a solid;
     }
-    .pijltje{
+
+    .pijltje {
         display: none;
     }
-    .flex-container article{
+
+    .flex-container article {
         max-height: 80rem;
     }
-    .flex-container{
+
+    .flex-container {
         margin: 0;
         max-width: inherit;
     }
-    .percentagebar_container{
+
+    .percentagebar_container {
         flex-direction: column;
     }
-    .percent10{
+
+    .percent10 {
         border-radius: 50%;
     }
-    body .show{
+
+    body .show {
         animation: menucome 500ms forwards;
     }
-    .menu-icon{
+
+    .menu-icon {
         display: inline;
         margin: 0;
     }
-    .menu-icon:hover{
+
+    .menu-icon:hover {
         background: transparent;
     }
-    .bolletjes_container{
+
+    .bolletjes_container {
         flex-direction: row;
     }
-    .closeMenu{
+
+    .closeMenu {
         display: inherit;
     }
+
     .hide {
         animation: menugo 500ms forwards;
     }
-    .flex-container article section{
+
+    .flex-container article section {
         margin-left: 1%;
     }
-    table{
+
+    table {
         display: none;
     }
-    .showsmall{
+
+    .showsmall {
         display: flex;
         flex-direction: row;
         row-gap: 2rem;
         flex-wrap: wrap;
     }
-    .showsmall div{
+
+    .showsmall div {
         margin: 0;
         width: 50%;
     }
-    .small-inset{
+
+    .small-inset {
         margin-left: 1rem;
         padding-left: 3px;
         border-left: #20C056 2px solid;
     }
-    footer{
+
+    footer {
         flex-direction: column;
     }
-    footer *{
+
+    footer * {
         margin-right: auto;
         margin-left: auto;
     }
-    footer .footer-left{
+
+    footer .footer-left {
         flex-direction: row;
         margin-left: auto;
     }
-    footer button{
+
+    footer button {
         margin-bottom: 10px;
     }
-    .opleidingen-container{
+
+    .opleidingen-container {
         gap: 0;
     }
-    .link-button{
+
+    .link-button {
         width: auto;
-        margin:initial;
+        margin: initial;
 
     }
 }
+
 @media screen and (max-width: 500px) {
     .showsmall {
         flex-direction: column;
