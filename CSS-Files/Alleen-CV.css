@@ -281,23 +281,95 @@ article.groot.hogerartiekel:has(.experience-img-grid) {
 }
 
 
+.rotate-left {
+    rotate: 180deg;
+}
+
 .experience-img-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     place-items: center;
     padding-bottom: 2.5rem;
+    & .back-button{
+        position:absolute;
+        border-radius: 5px;
+        top: 20px;
+        right: 20px;
+        outline: 2px solid;
+        &:hover{
+            background: white;
+            color: black;
+        }
+    }
 
-    & img {
-        max-width: 40vw;
+    & .no-pressing{
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    & button {
+        background: transparent;
+        max-width: 4rem;
+        min-width: auto;
+        border: none;
+
+        &:first-of-type {
+            place-self: center;
+        }
+
+        & img {
+            outline: none;
+        }
+    }
+
+    & .timeline-text {
+        margin-inline:10rem;
+        grid-column: 1/4;
+    }
+
+    & > img {
+        --minimum-height:0;
+        object-fit: contain;
+        max-width: 100%;
+        min-height: var(--minimum-height);
         grid-column: 2;
-        outline: black 1px solid;
+        /*outline: black 1px solid;*/
+    }
+
+    &.multiple {
+        grid-template-columns: auto 1fr auto;
     }
 }
 
+button:has(img), button:has(svg) {
+    background: transparent;
+    max-width: 4rem;
+    min-width: auto;
+    border: none;
+    place-self: center;
+    &:hover{
+        background: transparent;
+    }
+    & svg{
+        max-width: 100%;
+    }
+    & img {
+        outline: none;
+    }
+}
+.sem-container-grid{
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    place-items:center start;
+}
+.exp-timeline-container{
+    display: grid;
+}
 .exp-timeline {
     display: flex;
     flex-wrap: wrap;
     gap: .5rem;
+    justify-content: center;
 
     & .small-timeline-image-container {
         display: grid;
@@ -307,11 +379,12 @@ article.groot.hogerartiekel:has(.experience-img-grid) {
         align-items: end;
 
         & img {
-            max-width: 20vw;
+            max-width: max(15vw, 10rem);
             max-height: 20vh;
+
             object-fit: cover;
             filter: grayscale(45%);
-            
+
             &:hover {
                 filter: saturate(200%);
                 cursor: pointer;
@@ -530,6 +603,7 @@ footer button {
 ul {
     list-style-image: url("../assets/circle-svgrepo-com.svg");
     margin: 0;
+
     & li {
         margin-bottom: 1rem;
     }
@@ -689,36 +763,53 @@ tr:nth-child(odd) {
         grid-template-rows: 1fr auto auto;
         grid-template-columns: unset;
         gap: .5rem;
+        & .back-button{
+            position: relative;
+            grid-column: 1/4;
+            max-width:unset;
+            width: 100%;
+            padding: .5rem;
+        }
+        & .timeline-text{
+            margin-inline: auto;
+        }
 
         & img {
             max-width: 100%;
-            grid-row: 1;
-            grid-column: unset;
+            grid-column: 1 / 4;
+        }
+        & #left-img-arrow{
+            margin-left: 0;
+        }
+        & #left-img-arrow, #right-img-arrow{
+            grid-row: 2;
         }
     }
 
     .exp-timeline {
         flex-direction: row;
     }
+
 }
 
 @container img-grid-container (max-width: 700px) {
-    .exp-timeline {
-        & .small-timeline-image-container {
-            max-width: 45cqw;
+    /*.exp-timeline {*/
+    /*    & .small-timeline-image-container {*/
+    /*        max-width: 45cqw;*/
 
-            & img {
-                max-width: 100%;
+    /*        & img {*/
+    /*            max-width: 100%;*/
 
-            }
-        }
-    }
+    /*        }*/
+    /*    }*/
+    /*}*/
+
 }
 
 @container img-grid-container (max-width:550px) {
-    .exp-timeline {
+    /*.exp-timeline {*/
 
-    }
+    /*}*/
 }
 
 @media screen and (max-width: 1250px) {
@@ -864,7 +955,11 @@ tr:nth-child(odd) {
     }
 
     footer {
-        flex-direction: column;
+        place-items: center;
+    }
+
+    footer .footer-middle {
+        position: relative;
     }
 
     footer * {
@@ -873,8 +968,7 @@ tr:nth-child(odd) {
     }
 
     footer .footer-left {
-        flex-direction: row;
-        margin-left: auto;
+        display: none;
     }
 
     footer button {
