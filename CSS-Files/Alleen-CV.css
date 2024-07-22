@@ -332,6 +332,7 @@ article.groot.hogerartiekel:has(.experience-img-grid) {
         object-fit: contain;
         max-width: 100%;
         min-height: var(--minimum-height);
+        max-height: 100vh;
         grid-column: 2;
         /*outline: black 1px solid;*/
     }
@@ -987,6 +988,9 @@ tr:nth-child(odd) {
 }
 
 @media screen and (max-width: 500px) {
+    body{
+        font-size:unset;
+    }
     .showsmall {
         flex-direction: column;
     }
