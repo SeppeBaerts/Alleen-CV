@@ -52,7 +52,7 @@ body{
     margin-top: unset;
     margin-left: unset;
     margin-right: unset;
-    font-family: "HP Simplified",system-ui, sans-serif;
+    font-family:system-ui,"HP Simplified", sans-serif;
     /*font-size: 1.3rem;*/
     overflow-x: hidden;
     overscroll-behavior-x: none;
