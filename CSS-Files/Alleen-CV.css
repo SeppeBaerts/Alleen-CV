@@ -141,7 +141,7 @@ article {
     border: 2px black solid;
     border-radius: 10px;
     box-shadow: 10px 10px 20px;
-    transition: all 0.5s ease-in-out;
+    /*transition: all 0.5s ease-in-out;*/
 }
 
 article p {
@@ -273,18 +273,82 @@ article h2 {
 .flex-container > div > .scroll-enabled {
     overflow-y: scroll;
 }
-
+article.groot.hogerartiekel{
+    max-height: unset;
+}
 article.groot.hogerartiekel:has(.experience-img-grid) {
     container: img-grid-container / inline-size;
-    max-height: unset;
     overflow: scroll;
+}
+.programmeertalen-container{
+    flex-wrap: wrap;
+    --skill-color:#3f6251;
+    justify-content: center;
+    gap: 2rem;
+    .bwa{
+        --skill-color: #5d2525;
+    }
+    .ca-va{
+        --skill-color: #a1672c;
+    }
+    > p{
+        --outline-color:hsl(from var(--skill-color) h s 20%);
+        background-color: var(--skill-color);
+        border-radius: 1.5rem;
+        padding: .3rem .7rem;
+        outline: var(--outline-color) 1px solid;
+    }
+}
+.why-choose-me-item.why-choose-me-item{
+    flex: 1 1 25rem;
+    outline: 2px solid;
+    padding: 2rem;
+    margin: unset;
+    position: relative;
+    border-radius: 2rem;
+    &::before{
+        position: absolute;
+        opacity: 0;
+        inset: 0;
+        outline: 2px white solid;
+        border-radius: inherit;
+        filter: blur(3px);
+        content: "";
+        width: 100%;
+        height: 100%;
+        transition: opacity .25s ease-out;
+    }
+    &:hover::before{
+        opacity: 1;
+    }
+}
+.why-choose-me{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-inline: 2rem;
 }
 
 
 .rotate-left {
     rotate: 180deg;
 }
+/*.why-choose-me{*/
+/*    display: flex;*/
+/*    gap: 1rem;*/
 
+/*}*/
+/*.why-choose-me-item:nth-child(2){*/
+/*    scale: 1.2;*/
+
+/*}*/
+/*.why-choose-me-item.why-choose-me-item{*/
+/*    display: grid;*/
+/*    grid-template-rows: auto 1fr;*/
+/*    background:black;*/
+/*    outline: 1px solid gold;*/
+/*    margin: auto;*/
+/*}*/
 .experience-img-grid {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -765,7 +829,7 @@ tr:nth-child(odd) {
         grid-template-columns: unset;
         gap: .5rem;
         & .back-button{
-            position: relative;
+            position: static;
             grid-column: 1/4;
             max-width:unset;
             width: 100%;
@@ -986,7 +1050,11 @@ tr:nth-child(odd) {
 
     }
 }
-
+@media screen and (min-width: 500px){
+    body{
+        font-size: 1.3rem;
+    }
+}
 @media screen and (max-width: 500px) {
     body{
         font-size:unset;

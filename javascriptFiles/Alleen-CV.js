@@ -208,7 +208,7 @@ const timeline = {
         },
         {
             text: "Aangezien ik toch de foto’s van de kaarten al op mijn computer had staan, was mijn idee eigenlijk om nog een " +
-                "spelletje te maken. Aangezien ik solitaire aan het spelen was, leek dat mij een goeie keuze. " +
+                "spelletje te maken. Omdat ik toch solitaire aan het spelen was, leek dat mij een goeie keuze. " +
                 "Jammer genoeg werkte dit niet en kreeg je dus deze gekke dingen. Ik heb hier wel enorm veel over intersections enz. " +
                 "geleerd, dus het was geen weggegooide tijd. Coderen is nooit echt weggegooide tijd. ",
             imgSources:
@@ -357,12 +357,12 @@ const timeline = {
         */
     ],
     initialize: function () {
-
         timeline.leftSemButton = document.getElementById("left-sem-button")
         timeline.rightSemButton = document.getElementById("right-sem-button");
         timeline.semText = document.getElementById("sem-text");
         timeline.leftSemButton.addEventListener("click", timeline.prevSemester);
         timeline.rightSemButton.addEventListener("click", timeline.nextSemester);
+
     },
     nextSemester: function () {
         timeline.currentSemester = Math.min(4, timeline.currentSemester + 1);
@@ -389,7 +389,39 @@ const timelineCategories = {
     2: "C#",
     3: "SQL",
 }
-
+const whyMe = [
+    {
+      title:"Leergierigheid",
+      text:"Als IT'er moet je altijd mee zijn met de nieuwste technologie, daarom volg ik de nieuwtjes van C#, .Net en CSS van dichtbij op"
+    },
+    {
+        title:"Innovatief",
+        text:"Ik vind dat er voor bijna elk probleem een oplossing is. Zo heb ik bijvoorbeeld mijn eigen Binaire text extractor gemaakt die de tekst haalt uit oude .PPT bestanden " +
+            "of bijvoorbeeld bij mijn graduaatsproef waarbij ik een PowerBI rapport kon aanmaken, uploaden, data ernaar verzenden en het rapport automatisch vernieuwen zonder dat de " +
+            "user er enige actie voor moest doen. (buiten natuurlijk inloggen)."
+    },
+    {
+        title:"Sociaal",
+        text:"iets drinken na het werk? I'm in! ik vind het altijd leuk om sociaal te doen en ben een echte teamspeler."
+    },
+    {
+        title:"Snelle leerling",
+        text:"Ik ben iemand die goed is in het zien van verbanden of het begrijpen van software. Dit zorgt ervoor dat ik " +
+            "snel een nieuwe kan leren. Ik heb mijn graduaatsproef gemaakt met React.js en Blazor en ik heb gewerkt met Power BI, " +
+            "waar ik ook niks van kende. Ik heb deze dingen geleerd in 4 maanden tijd en dit samen met school."
+    },
+    {
+        title:"Ik hou van uitleggen",
+        text:"Software uitleggen? Geen probleem! ik ben iemand die veel trots neemt in wat hij maakt dus ik leg het ook in alle plezier uit. " +
+            "Zo heb ik vaak mijn medestudenten geholpen bij een probleem dat ze hadden of als ze ergens mee vast zaten."
+    },
+    {
+        title:"Ik weet wat ik codeer",
+        text:"Code kopiëren van ChatGPT kan iedereen, maar begrijpen wat ze plakken is meestal te veel gevraagd. Niet bij mij! " +
+            "Omdat ik zo leergierig ben, wil ik altijd zeker weten wat ik aan het coderen ben, dit zorgt er ook voor dat ik weinig " +
+            "aan ChatGPT moet vragen. Als dat dan toch gebeurd wil ik altijd weten wat ik heb geschreven. Dat bespaard mij ook tijd in de toekomst. "
+    },
+]
 /*
 *********************
 * Timeline functions
@@ -497,9 +529,9 @@ window.addEventListener("load", () => {
 
     document.getElementById("back-button").addEventListener("click", currentBigPicturecontent.closeBigPicture)
 
-    for (let i = 0; i < pijltje.length; i++) {
-        pijltje[i].addEventListener("click", uitklappen)
-    }
+    // for (let i = 0; i < pijltje.length; i++) {
+    //     pijltje[i].addEventListener("click", uitklappen)
+    // }
     for (let i = 0; i < vertaal.length; i++) {
         vertaal[i].addEventListener("click", vertaalPagina)
     }
