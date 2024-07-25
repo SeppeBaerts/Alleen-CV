@@ -61,7 +61,7 @@ div {
     max-height: 18rem;
     min-height: 18rem;
     overflow-y: hidden;
-    min-width: 25rem;
+    min-width: min(20rem, 90dvw);
     /*animation: spring-from-left 2000ms;*/
     /*transition: all 500ms ease-out;*/
 }
@@ -1061,6 +1061,12 @@ tr:nth-child(odd) {
     }
 }
 @media screen and (max-width: 600px) {
+    .flex-container article{
+        border-radius: 1.5rem;
+    }
+    .flex-container.flex-container{
+        min-width: unset;
+    }
     body{
         font-size:1rem;
         -webkit-text-size-adjust: none;
