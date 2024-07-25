@@ -290,8 +290,10 @@ const timeline = {
         },
         {
             text: "Dit was mijn project voor C# Mobile, Ik heb een App gemaakt waarmee je kunt checken of je huisdier eten heeft gekregen, " +
-                "hoe vaak die eten heeft gekregen en hoe lang je nog met de zak eten zou komen. Je kunt er ook verschillende families in hebben, " +
-                "ik heb hier een 19/20 voor gekregen omdat ik jammer genoeg te laat was met de video ervoor in te leveren. De video kun je wel hier terug vinden: https://youtu.be/n-W7a24X_3Y",
+                "hoe vaak die eten heeft gekregen en hoe lang je nog met de zak eten zou komen. Je kunt er ook verschillende families in hebben. " +
+                "Wanneer er een actie wordt uitgevoerd, zoals een dier eten geven of toevoegen, een gezin verlaten, inloggen, een account maken... " +
+                "wordt een achterliggende database (gemaakt met Entity Framework) geüpdate via mijn API. Ik heb in dit project ook gefocust op accessibility voor bijv screenreaders etc. " +
+                "Meer informatie en een complete rundown van de app kun je in deze video zien (je moet het wel even kopiëren en plakken): https://youtu.be/n-W7a24X_3Y",
             imgSources:
                 [
                     {
@@ -324,20 +326,26 @@ const timeline = {
             sem: 3,
             timelineCategories: [2],
         },
-        // {
-        //     text: "under construction",
-        //     imgSources:
-        //         [
-        //             {
-        //                 imageSource: "",
-        //                 alt: ""
-        //             },
-        //         ],
-        //     alt: "",
-        //     date: "08/01/2024",
-        //     sem: 3,
-        //     timelineCategories: [2],
-        // },
+        {
+            text: "Deze website was een groepswerk voor C# web, we moesten een website maken met MVC en Blazor. " +
+                "Hierin hebben we ook een API geschreven die de stock regelt en kon je inloggen met Google, facebook..." +
+                "De website is geschreven met MVC, Blazor en Identity framework.",
+            imgSources:
+                [
+                    {
+                        imageSource: "assets/FotosTimeline/MVCWebsite/webMVC2.png",
+                        alt: "A website with guitars"
+                    },
+                    {
+                        imageSource: "assets/FotosTimeline/MVCWebsite/webmvc3.png",
+                        alt: "A login page"
+                    },
+                ],
+            alt: "",
+            date: "16/04/2024",
+            sem: 4,
+            timelineCategories: [2,1],
+        },
 
         /*
         {
