@@ -490,17 +490,22 @@ function setBigPicture(pic) {
 
 
 function darkModeCheck() {
-    if (!localStorage.getItem("darkMode")) {
-        localStorage.setItem("darkMode", "true");
-        toggleDarkmode();
-    } else if (localStorage.getItem("darkMode") === "true") {
-        toggleDarkmode();
+    // Check for "theme" in localStorage. If "light", enable light mode.
+    // Default is now Dark/Modern (no class).
+    const theme = localStorage.getItem("theme");
+
+    if (theme === "light") {
+        document.body.classList.add("light-mode");
+        if (darkmodeButton) darkmodeButton.ariaExpanded = "true";
+    } else {
+        document.body.classList.remove("light-mode");
+        if (darkmodeButton) darkmodeButton.ariaExpanded = "false";
     }
 }
 
 function toggleDarkmode() {
-    document.body.classList.toggle("dark-mode");
-    toggleAreaExpanded(darkmodeButton)
+    document.body.classList.toggle("light-mode");
+    if (darkmodeButton) toggleAreaExpanded(darkmodeButton);
 }
 
 function toggleAreaExpanded(targetButton) {
@@ -508,8 +513,12 @@ function toggleAreaExpanded(targetButton) {
 }
 
 function darkModeClick() {
-    localStorage.setItem("darkMode", localStorage.getItem("darkMode") === "true" ? "false" : "true");
     toggleDarkmode();
+    if (document.body.classList.contains("light-mode")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
 }
 
 function uitklappen() {
