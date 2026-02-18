@@ -1,0 +1,663 @@
+:root {
+    /* Color Palette - Dark High-Tech (Default) */
+    --bg-body: #0f172a;
+    --bg-surface: #1e293b;
+    --bg-surface-hover: #334155;
+    --text-primary: #f1f5f9;
+    --text-secondary: #94a3b8;
+    --accent-primary: #38bdf8;
+    --accent-secondary: #10b981;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-glow: 0 0 15px rgba(56, 189, 248, 0.3);
+
+    /* Typography */
+    --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-mono: 'Fira Code', monospace;
+
+    /* Spacing & Radius */
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 9999px;
+
+    /* Transitions */
+    --transition-fast: 150ms ease;
+    --transition-medium: 300ms ease;
+}
+
+/* Light Mode Override */
+.light-mode {
+    --bg-body: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-hover: #f1f5f9;
+    --text-primary: #0f172a;
+    --text-secondary: #64748b;
+    --accent-primary: #0284c7;
+    --accent-secondary: #059669;
+    --border-color: rgba(0, 0, 0, 0.1);
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    --shadow-glow: 0 0 10px rgba(2, 132, 199, 0.2);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    margin: 0;
+    line-height: 1.6;
+    transition: background-color var(--transition-medium), color var(--transition-medium);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 0;
+    color: var(--text-primary);
+}
+
+h1 { font-size: 2.5rem; letter-spacing: -0.02em; }
+h2 { font-size: 2rem; letter-spacing: -0.01em; margin-bottom: 1rem; }
+h3 { font-size: 1.5rem; margin-bottom: 0.75rem; }
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+a:hover {
+    color: var(--accent-secondary);
+}
+
+code {
+    font-family: var(--font-mono);
+    background: rgba(127, 127, 127, 0.1);
+    padding: 0.2em 0.4em;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.5rem;
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.dashboard-grid > div {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Navigation - Glassmorphism */
+.glass-nav {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0.75rem 2rem;
+    background: rgba(15, 23, 42, 0.85); /* Fallback/Base */
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border-color);
+    gap: 1rem;
+    flex-wrap: wrap;
+    transition: all var(--transition-medium);
+}
+
+.light-mode .glass-nav {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+/* Nav Buttons */
+.glass-nav button,
+.glass-nav .link-button {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    font-family: var(--font-body);
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: center;
+    width: auto;
+    margin: 0;
+    min-width: auto;
+}
+
+.glass-nav button:hover,
+.glass-nav .link-button:hover {
+    background: var(--bg-surface-hover);
+    color: var(--accent-primary);
+}
+
+.glass-nav button.disabled,
+.glass-nav button.disabled:hover {
+    display: none;
+}
+
+/* Hide hamburger on desktop for now, or style it */
+#hamburgerbutton {
+    display: none; /* Simplify for desktop first, make responsive later if needed */
+}
+
+/* Dark Mode Button */
+#darkModeButton {
+    position: relative; /* Override absolute positioning from JS/Old CSS */
+    width: 40px;
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+#darkModeButton svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Nav */
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+    }
+
+    .glass-nav {
+        justify-content: center;
+        padding: 0.5rem;
+    }
+}
+
+/* Components - Cards */
+article {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-soft);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium), border-color var(--transition-medium);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* For rounded corners */
+}
+
+article:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow), var(--shadow-soft);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.light-mode article:hover {
+    border-color: rgba(2, 132, 199, 0.4);
+    box-shadow: var(--shadow-glow), var(--shadow-soft);
+}
+
+/* Card Headers */
+article h2 {
+    font-size: 1.25rem;
+    color: var(--accent-primary);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.75rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Profile Card Specifics */
+.main-picture-div {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.main-picture-div a {
+    display: block;
+    border-radius: 50%;
+    padding: 4px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+}
+
+.main-picture-div img {
+    display: block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--bg-body);
+    border: 4px solid var(--bg-body);
+}
+
+/* Flex utilities replacement */
+.rowdirect {
+    display: flex;
+    flex-direction: column; /* Default to column for grid items usually, but let's check profile card */
+    align-items: center;
+    text-align: center;
+}
+
+/* Work Experience List */
+.work-experience-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.work-experience-list li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    border-left: 2px solid var(--bg-surface-hover);
+    transition: border-color var(--transition-fast);
+}
+
+.work-experience-list li:hover {
+    border-left-color: var(--accent-primary);
+}
+
+.work-experience-list li::before {
+    content: '';
+    position: absolute;
+    left: -5px;
+    top: 0.5em;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--bg-surface-hover);
+    transition: background-color var(--transition-fast);
+}
+
+.work-experience-list li:hover::before {
+    background-color: var(--accent-primary);
+}
+
+/* Tables (Personalia) */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+td {
+    padding: 0.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+td:first-child {
+    font-weight: 600;
+    color: var(--text-secondary);
+    width: 40%;
+}
+
+td:last-child {
+    color: var(--text-primary);
+}
+
+/* Education Container */
+.opleidingen-container {
+    background: var(--bg-surface-hover);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    transition: border-color var(--transition-fast);
+}
+
+.opleidingen-container:hover {
+    border-color: var(--accent-primary);
+}
+
+.opleidingen-container p:first-child {
+    color: var(--accent-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.opleidingen-container p {
+    margin: 0;
+}
+
+/* Scroll enabled override */
+.scroll-enabled {
+    overflow-y: auto;
+    max-height: 400px;
+    padding-right: 0.5rem;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-body);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--bg-surface-hover);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--text-secondary);
+}
+
+/* Hide/Show classes logic */
+.disabled, .hide {
+    display: none !important;
+}
+
+
+/* Skills - Knowledge Tags */
+.programmeertalen-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: flex-start;
+}
+
+.programmeertalen-container p {
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-pill);
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin: 0;
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.programmeertalen-container p:hover {
+    background: var(--bg-surface);
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* Skills - Languages (Dots) */
+.percentagebar_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    background: var(--bg-surface-hover);
+    border-radius: var(--radius-md);
+}
+
+.percentagebar_container h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.bolletjes_container {
+    display: flex;
+    gap: 0.25rem;
+}
+
+.cirkel {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--bg-body);
+    position: relative;
+    overflow: hidden;
+}
+
+/* The 'aan' classes trigger an animation in the old CSS.
+   Here we just style the '::before' or the element itself if it has the class.
+   The old JS/CSS relied on animation. Let's try to assume 'aan' means active.
+   Wait, the HTML has classes 'aan1', 'aan2' etc on the divs.
+   The old CSS: .cirkel::before { ... animation ... }
+   I'll just make the background color active if it has an 'aan' class.
+*/
+.cirkel[class*="aan"] {
+    background-color: var(--accent-secondary);
+    box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+/* Timeline Stream */
+.exp-timeline-container {
+    margin-top: 1rem;
+}
+
+.sem-container-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sem-container-grid button {
+    background: var(--bg-surface-hover);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.sem-container-grid button:hover {
+    background: var(--accent-primary);
+    color: var(--bg-surface);
+}
+
+.sem-container-grid p {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+#timelinePictures {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+}
+
+.small-timeline-image-container {
+    background: var(--bg-surface-hover);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--transition-fast);
+    display: flex;
+    flex-direction: column;
+}
+
+.small-timeline-image-container:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-glow);
+}
+
+.small-timeline-image-container h3 {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    background: rgba(0,0,0,0.2);
+}
+
+.small-timeline-image-container img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+}
+
+.small-timeline-image-container p {
+    font-size: 0.8rem;
+    padding: 0.5rem;
+    margin: 0;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+/* Big Timeline Picture Overlay */
+#big-image-container {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.95);
+    z-index: 2000;
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    justify-items: center;
+    padding: 2rem;
+    backdrop-filter: blur(10px);
+}
+
+#big-image-container.disabled {
+    display: none;
+}
+
+#big-image-container img {
+    max-width: 90%;
+    max-height: 80vh;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-glow);
+}
+
+.timeline-text {
+    grid-column: 1 / -1;
+    color: var(--text-primary);
+    margin-top: 1rem;
+    max-width: 800px;
+    text-align: center;
+    background: var(--bg-surface);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+}
+
+#back-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--bg-surface-hover);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#back-button:hover {
+    background: var(--accent-primary);
+    color: white;
+}
+
+/* Why Choose Me */
+.why-choose-me {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.why-choose-me-item {
+    background: var(--bg-surface-hover);
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+}
+
+.why-choose-me-item:hover {
+    border-color: var(--accent-primary);
+    transform: translateY(-2px);
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: 2rem;
+}
+
+/* Dark Mode SVG Animation Styles */
+.circle-moon {
+    fill: transparent;
+    transition: rotate 200ms ease, cx 200ms ease, cy 300ms ease, fill 300ms ease;
+}
+
+.cirlce-sun {
+    fill: var(--accent-primary); /* Adapted from yellow */
+}
+
+.stroke {
+    fill: var(--accent-primary); /* Adapted from yellow */
+}
+
+#darkModeButton[aria-expanded="true"] .circle-moon {
+    cx: 60;
+    cy: 50;
+    stroke: var(--text-primary);
+    fill: var(--text-primary);
+}
+
+#darkModeButton[aria-expanded="true"] .cirlce-sun {
+    fill: var(--text-secondary);
+    transition: fill 600ms ease;
+}
+
+#darkModeButton[aria-expanded="true"] .stroke {
+    opacity: 0;
+    x: 25;
+    y: 50;
+    rotate: 0deg;
+    transition: rotate 200ms ease 150ms, x 200ms ease 150ms, y 300ms ease 150ms, opacity 150ms ease;
+}
+
+.sun-stroke1 { rotate: -40deg; }
+.sun-stroke2 { rotate: 30deg; }
+.sun-stroke3 { rotate: 0deg; }
+.sun-stroke4 { rotate: 40deg; }
+.sun-stroke5 { rotate: 0; }
+.sun-stroke6 { rotate: -30deg; }
+.sun-stroke7 { rotate: 90deg; }
+.sun-stroke8 { rotate: -90deg; }
+
+.performance {
+    transition: rotate 200ms ease, x 200ms ease, y 300ms ease, cx 200ms ease, cy 300ms ease, opacity 50ms ease, fill 200ms ease 100ms;
+}
+
+.dark-mode-svg {
+    overflow: visible;
+}
